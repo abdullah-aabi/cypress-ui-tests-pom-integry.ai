@@ -1,0 +1,51 @@
+{
+    "googleSheetjsonRequest": [
+        "{",
+        "\"redirect_uri\":\"{{requestBody.redirect_uri}}\",",
+        "\"client_id\":\"{{requestBody.client_id}}\",",
+        "\"client_secret\":\"{{requestBody.client_secret}}\",",
+        "\"grant_type\":\"{{requestBody.grant_type}}\"",
+        "{% if requestBody.grant_type == 'refresh_token' %}",
+        "{% if requestBody.refresh_token is defined %}\",",
+        "\"refresh_token\":\"{{requestBody.refresh_token}}\"",
+        "{% endif %}",
+        "{% else %}\",",
+        "\"code\":\"{{requestBody.code}}\"",
+        "{% endif %}",
+        "}"
+    ],
+    "googleSheetJsonResponse": [
+        "{",
+        "\"access_token\":\"{{ response.access_token }}\",",
+        "\"extras\": \"{",
+        "\"instance_url\": \"{{ response.instance_url }}\"",
+        "}",
+        "{% if response.refresh_token is defined %}",
+        ",",
+        "\"refresh_token\": \"{{ response.refresh_token }}\"",
+        "{% endif %}",
+        "}"
+    ],
+    "hubSpotTokenjsonRequest": [
+        "{",
+        "\"client_id\": \"{{ requestBody.client_id }}\",",
+        "\"redirect_uri\": \"{{ requestBody.redirect_uri }}\",",
+        "\"client_secret\": \"{{ requestBody.client_secret }}\",",
+        "\"code\": \"{{ requestBody.code }}\",",
+        "{% if requestBody.grant_type is defined %}",
+        "\"grant_type\": \"{{ requestBody.grant_type }}\",",
+        "{% if requestBody.grant_type == 'refresh_token' and requestBody.refresh_token is defined %}",
+        "\"refresh_token\": \"{{ requestBody.refresh_token }}\",",
+        "{% endif %}",
+        "{% else %}",
+        "\"grant_type\": \"authorization_code\",",
+        "{% endif %}",
+        "}"
+    ],
+    "hubSpotTokenJsonResponse": [
+        "{",
+        "\"access_token\": \"{{ response.access_token }}\",",
+        "\"refresh_token\": \"{{ response.refresh_token }}\",",
+        "}"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+
+    "v1":
+    {
+    "markeplaceurl": "https://integrations.tatango.com/",
+    "NavSignInText": "Sign in",
+    "Username" : "integry2",
+    "Password": "tatango123",
+    "CreateFlowBtnText": "Create Flow"
+
+    }
+}

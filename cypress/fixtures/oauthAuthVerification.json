@@ -1,0 +1,14 @@
+{
+    "jsonResponse": [
+        "{\"user_identity\":\"{{response.name}}\",",
+        "}"
+    ],
+    "configrations": [
+        "{\"response_type\":\"code\"}"
+    ],
+    "hubSpotJsonResponse": [
+        "{",
+        "\"user_identity\": \"{{ response.user }} / {{ response.hub_domain }}",
+        "}"
+    ]
+}

@@ -1,0 +1,1935 @@
+{
+    "v3": {
+        "fieldTitle": "Automated Testing App",
+        "fieldDescription": "Description of testing app",
+        "baseUrlName": "Test",
+        "baseUrl": "http://integry.io",
+        "authorization": "Authorizations",
+        "triggers": "Triggers",
+        "action": "Actions",
+        "productPage": "Product Page",
+        "verifyMessage": "App has been created successfully",
+        "verifyUpdateMessage": "Product page of your app have been successfully updated",
+        "verifyDescription": "Description of testing app"
+    },
+    "fillBaseUrlApi_Url": {
+        "baseUrl": "http://www.insightly.com",
+        "appBaseUrl": "https://api.insight.ly",
+        "headerBaseUrl": "{{authorization.token.extras.base_uri | raw}}",
+        "apiBaseUrlHeader": "Base URl",
+        "apiVersion": "v3.1"
+    },
+    "fillSendInBlueInfo": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_url": "http://www.sendinblue.com",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://api.sendinblue.com",
+                    "rkey": 1,
+                    "headers": [
+                        {
+                            "key": "",
+                            "value": "application/json",
+                            "rkey": 2,
+                            "header_name": "Accept"
+                        },
+                        {
+                            "key": "",
+                            "value": "application/json",
+                            "rkey": 3,
+                            "header_name": "Content-Type"
+                        },
+                        {
+                            "key": "",
+                            "value": "{{ authorization.authorization_type.client_id }}",
+                            "rkey": 4,
+                            "header_name": "partner-key"
+                        }
+                    ]
+                }
+            ],
+            "app_name": "SendInBlue_",
+            "app_description": "Sendinblue is a SaaS solution for relationship marketing. Build deeper and meaningful relationships with your customers.",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/8c0f3e48-a9b3-4df1-8e2f-ab44ccbce4e0.png",
+            "api_version_deprecation": null,
+            "last_version_checked": null,
+            "api_version": 1.0
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "api-key",
+                    "value": "{{ authorization.token.access_token }}",
+                    "rkey": 1,
+                    "header_name": "api-key"
+                },
+                {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "rkey": 2,
+                    "header_name": "Accept"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "rkey": 3,
+                    "header_name": "Content-Type"
+                },
+                {
+                    "key": "partner-key",
+                    "value": "{{ authorization.authorization_type.client_id }}",
+                    "rkey": 4,
+                    "header_name": "partner-key"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/v3/account",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "actionEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "api-key",
+                    "value": "{{ authorization.token.access_token }}",
+                    "rkey": 1,
+                    "header_name": "api-key"
+                },
+                {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "rkey": 2,
+                    "header_name": "Accept"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "rkey": 3,
+                    "header_name": "Content-Type"
+                },
+                {
+                    "key": "partner-key",
+                    "value": "{{ authorization.authorization_type.client_id }}",
+                    "rkey": 4,
+                    "header_name": "partner-key"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 456,
+            "source_type": "poll",
+            "http_verb": "post",
+            "request_template": "{\"email\":\"{{requestBody.data.email}}\",\n{% if requestBody.data.sendinblue_attributes is not\nempty %}\n\"attributes\":{\n{% for property_name, property_value in\nrequestBody.data.sendinblue_attributes %}\n\"{{property_name}}\":\"{{ property_value }}\n{% if not loop.last %}\n{% endif %}\n{% endfor %}\n}\n{% endif %}\n\"listIds\":[{{requestBody.data.listid}}]\n{% if requestBody.data.emailBlacklisted == 1 or requestBody.data.emailBlacklisted == '1'  or requestBody.data.emailBlacklisted == 'true' or requestBody.data.emailBlacklisted == 'True'%},\n\"emailBlacklisted\":true{% else %},\n\"emailBlacklisted\":false {% endif %}\n{% if requestBody.data.smsBlacklisted == 1 or requestBody.data.smsBlacklisted == '1' or requestBody.data.smsBlacklisted == 'true' or requestBody.data.smsBlacklisted == 'True'%},\n\"smsBlacklisted\":true {% else %},\n\"smsBlacklisted\":false{% endif %}\n}",
+            "response_template": "{# Here you can transform the raw response of your API into any other shape you want using Twig. Or keep the default code snippet below and it will forward your raw response to Flows without any changes. #}\n{{ response | json_encode | raw }}",
+            "endpoint_name": "Action endpoint: Create Contact",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/v3/Contacts",
+            "object_id": 3,
+            "endpoint_action": "CREATE",
+            "object_output_template": "{\n    \"contact_v1\": {\n        \"work_postal_code\": \"\",\n        \"last_name\": \"\",\n        \"surname\": \"\",\n        \"home_state\": \"\",\n        \"home_postal_code\": \"\",\n        \"profession\": \"\",\n        \"work_fax\": \"\",\n        \"other_country\": \"\",\n        \"home_address\": \"\",\n        \"work_street\": \"\",\n        \"id\": \"\",\n        \"home_fax\": \"\",\n        \"first_name\": \"\",\n        \"work_state\": \"\",\n        \"middle_name\": \"\",\n        \"title\": \"\",\n        \"work_phone\": \"\",\n        \"home_phone\": \"\",\n        \"religion\": \"\",\n        \"given_name\": \"\",\n        \"home_street\": \"\",\n        \"department\": \"\",\n        \"email\": \"\",\n        \"job_title\": \"\",\n        \"nick_name\": \"\",\n        \"mobile_phone\": \"\",\n        \"home_city\": \"\",\n        \"work_address\": \"\",\n        \"other_email\": \"\",\n        \"company\": \"\",\n        \"work_country\": \"\",\n        \"birthday\": \"\",\n        \"other_street\": \"\",\n        \"display_name\": \"\",\n        \"home_country\": \"\",\n        \"other_phone\": \"\",\n        \"family_name\": \"\",\n        \"lead_source\": \"\",\n        \"other_state\": \"\",\n        \"last_updated\": \"\",\n        \"created\": \"\",\n        \"other_fax\": \"\",\n        \"gender\": \"\",\n        \"other_postal_code\": \"\",\n        \"other_address\": \"\",\n        \"initials\": \"\"\n    }\n}",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "getContactList": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "api-key",
+                    "value": "{{ authorization.token.access_token }}",
+                    "rkey": 1,
+                    "header_name": "api-key"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "rkey": 2,
+                    "header_name": "Content-Type"
+                },
+                {
+                    "key": "partner-key",
+                    "value": "{{ authorization.authorization_type.client_id }}",
+                    "rkey": 3,
+                    "header_name": "partner-key"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": "50",
+            "endpoint_name": "Dropdown field source endpoint - Get Contact List V3",
+            "is_pagination": true,
+            "tracking_property_name": "",
+            "endpoint_type": 451,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Produce a JSON Array of objects. Every object represents one option in the dropdown. So each object must contain a key named \"id\" that will become the value of dropdown option and another key named \"value\" that will become label of the option. #}\n[\n    {% for project in response %}\n      {\n        \"id\": \"{{ project.id }}\",\n        \"value\": \"{{ project.name }}\"\n      }\n      {% if not loop.last %} , {% endif %}\n    {% endfor %}\n]",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/v3/contacts/lists",
+            "pg_limit_variable_name": "limit",
+            "pg_limit_variable_location": "QUERY_PARAMS",
+            "pg_offset_variable_name": "offset",
+            "pg_offset_variable_location": "QUERY_PARAMS",
+            "pg_total_items_variable": "",
+            "pg_total_items_variable_location": "QUERY_PARAMS",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "createAuth": {
+            "type_id": "APIKey",
+            "userinfo_uri_endpoint": "<endpointId>",
+            "userinfo_uri_endpoint_v2": "<endpointId>",
+            "user_identity_field": "user_identity",
+            "authorization_uri": "/auth/apikey/config",
+            "app": "<appId>"
+        },
+        "action": {
+            "pre_save_endpoint": "",
+            "post_save_endpoint": "",
+            "pre_delete_endpoint": "",
+            "post_delete_endpoint": "",
+            "pre_update_endpoint": "",
+            "post_update_endpoint": "",
+            "activity_fields": [
+                {
+                    "machine_name": "email",
+                    "type": "TEXTFIELD",
+                    "title": "Email Address",
+                    "description": "Enter email address of the contact",
+                    "child_fields": "",
+                    "parent_fields": "",
+                    "is_dynamic": false,
+                    "data_src_endpoint": "",
+                    "regex": "",
+                    "dynamic_field_src_endpoint": "",
+                    "weight": 0,
+                    "rkey": 0,
+                    "regex_error_message": "Regular Expression to Validate Input Text",
+                    "is_required": true,
+                    "data_src": "",
+                    "conditional_fields": null
+                },
+                {
+                    "machine_name": "emailBlacklisted",
+                    "type": "CHECKBOX",
+                    "title": "Email Black Listed",
+                    "description": "Tick this field if you want the email to be blacklisted",
+                    "child_fields": "",
+                    "parent_fields": "",
+                    "is_dynamic": false,
+                    "data_src_endpoint": "",
+                    "regex": "",
+                    "dynamic_field_src_endpoint": "",
+                    "weight": 1,
+                    "rkey": 1,
+                    "conditional_fields": "[{\"value\":\"Parent fields\",\"field_array\":\"Child fields\"}]"
+                },
+                {
+                    "machine_name": "smsBlacklisted",
+                    "type": "CHECKBOX",
+                    "title": "Sms Black Listed",
+                    "description": "Tick this field if you want the sms to be blacklisted",
+                    "child_fields": "",
+                    "parent_fields": "",
+                    "is_dynamic": false,
+                    "data_src_endpoint": "",
+                    "regex": "",
+                    "dynamic_field_src_endpoint": "",
+                    "weight": 2,
+                    "rkey": 2,
+                    "conditional_fields": "[{\"value\":\"Parent fields\",\"field_array\":\"Child fields\"}]"
+                }
+            ],
+            "publishing_status": "DRAFT",
+            "is_polling_based": false,
+            "is_published": false,
+            "name": "Action: Create Contact in Send In Blue",
+            "activity_description": "Test : Action Created by Automation Bot.",
+            "authorization_type": "<authTypeId>",
+            "endpoint_ref": "<endpointId>",
+            "type": "ACTION",
+            "app": "<appId>"
+        },
+        "authName": "API-Key--",
+        "rawRequestBody": "{\"requestBody\":{\"data\":{\"email\":\"testewgaljksdk@gmail.com\"}}}",
+        "appLogoImageHolder": "SendInBlue.png",
+        "baseUrl": "http://www.sendinblue.com",
+        "endpointName": "SendinBlue - User info",
+        "requestMethodDropdown": "GET",
+        "baseUrlDropDownIcon": "Base URL 3",
+        "headerFirstValue": "api-key",
+        "endpointUrl_path": "/v3/account",
+        "header0Value": "{{ authorization.token.access_token }}",
+        "header1KeyDropdown": "Accept",
+        "header1Value": "application/json",
+        "header2ndKeyDropdown": "Content-Type",
+        "headerThirdValue": "partner-key",
+        "header3rdValue": "{{ authorization.authorization_type.client_id }}",
+        "headerSecondValueDropdown": "application/json",
+        "apiFirstUrl": "Base URL 1",
+        "appBaseUrl": "https://api.sendinblue.com",
+        "apiSecondUrl": "Base URL 2",
+        "appSecondBaseUrl": "https://www.integry.io",
+        "apiThrirdUrl": "Base URL 3",
+        "apiFourthUrl": "Base URL 4",
+        "appThirdBaseUrl": "https://api.sendinblue.com",
+        "headerBaseUrl": "{{authorization.token.extras.base_uri | raw}}",
+        "apiBaseUrlHeader": "Base URl",
+        "apiVersion": "v3.1",
+        "appFourthBaseUrl": "https://partner-notification.51b.tech",
+        "title": "SendInBlue",
+        "description": "Sendinblue is a SaaS solution for relationship marketing. Build deeper and meaningful relationships with your customers.",
+        "authVerificationEndpoint": "User Info endpoint",
+        "authType": "API key",
+        "submitBtnText": "Proceed",
+        "buttonText": "Proceed",
+        "apiKey": "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",
+        "createActionText": "Create Action",
+        "actionNameText": "SendInblue Action",
+        "actionDescription": "Test : Action Created by Automation Bot.",
+        "actionObjectText": "Contact V1",
+        "objectAction": "Create",
+        "FirstactivityName": "Email Address",
+        "firstMachineName": "email",
+        "firstObjectFieldValue": "first_name",
+        "fieldDiscription": "Enter email address of the contact",
+        "regexValidator": "Regular Expression to Validate Input Text",
+        "secondFieldName": "Email Black Listed",
+        "secondMachineValue": "emailBlacklisted",
+        "thirdFieldName": "Sms Black Listed",
+        "thirdMachineValue": "smsBlacklisted",
+        "secondFieldDes": "Tick this field if you want the email to be blacklisted",
+        "conditionalFieldValue": "Parent fields",
+        "conditionalFieldArray": "Child fields",
+        "ThirdFieldDes": "Tick this field if you want the sms to be blacklisted",
+        "createActionEndpoint": "Action endpoint: Create Contact",
+        "ActionEndpointName": "Action: Create Contact",
+        "apiRequestType": "POST",
+        "actionBaseUrl": "Base URL 3",
+        "endpoint": "/v3/Contacts",
+        "endpointActionName": "Action: Create Contact",
+        "accountName": "API-Key",
+        "firstField": "abdullah@integry.io",
+        "authSuccessMsg": "200OKView details"
+    },
+    "fillSendInBlueActionEndpoint": {
+        "actionEndpoint": "Action: Create Contact",
+        "apiRequestType": "POST",
+        "actionBaseUrl": "Base URL 3",
+        "urlEndPoint": "/v3/contacts",
+        "actionObjectText": "Contact V1",
+        "objectAction": "Create"
+    },
+    "apiKey": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_name": "Done Day App_",
+            "app_description": "Done Day category-defining Customer Experience Automation Platform (CXA), by QA.",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/0038e9c9-06b2-4def-9bcf-5a77328c242d.png",
+            "app_url": "doneday.net",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://doneday.integry.io/api",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "api_version": "1.0",
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "X-API-KEY",
+                    "value": "{{ authorization.token.access_token }}",
+                    "rkey": 1,
+                    "header_name": "X-API-KEY"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/user",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "authType": "API key",
+        "authVerificationEndpoint": "User Info endpoint",
+        "endpointName": "User Info endpoint",
+        "authName": "API-Key---XHTS",
+        "baseUrl": "https://doneday.integry.io",
+        "reqUrl": "https://doneday.integry.io/api",
+        "action": "/api",
+        "apiTokenValue": "8pjI97clYJO7q9RM7VYy",
+        "apiTokenKey": "Authorization",
+        "authApi": "iVHcu0Tt8DAQvWr7XHTS",
+        "submitBtnText": "Proceed",
+        "connectedAssertion": "Connected",
+        "authSuccessMsg": "200OKView details"
+    },
+    "basicAuth": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_url": "https://mailchimp.com",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://mailchimp.com/",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "app_name": "MailChimp_",
+            "app_description": "Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/a70cd186-4af0-4704-b0d9-cccd269cefe7.png",
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "title": "MailChimp",
+        "description": "Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator",
+        "authType": "Basic",
+        "baseUrl": "https://mailchimp.com",
+        "action": "/",
+        "appBaseUrl": "https://mailchimp.com/",
+        "appLogoImageHolder": "mailchimp.png",
+        "authName": "Mailchimp Basic",
+        "username": "abdullah@integry.io",
+        "password": "meAabi13119",
+        "submitBtnText": "Proceed",
+        "authVerificationEndpoint": "User Info endpoint",
+        "endpointName": "User Info endpoint",
+        "requestMethodDropdown": "GET",
+        "baseUrlDropdown": "Base URl",
+        "endpointUrl_path": "/",
+        "connectedAssertion": "Connected",
+        "authSuccessMsg": "200OKView details"
+    },
+    "doneDayBasicPage": {
+        "baseUrl": "doneday.net",
+        "appBaseUrl": "https://doneday.integry.io/api",
+        "headerBaseUrl": "https://doneday.integry.io/api",
+        "apiBaseUrlHeader": "Base URl",
+        "apiVersion": "1.0",
+        "userProfile": "https://doneday.integry.io/settings"
+    },
+    "fillBaseUrlBasic": {
+        "baseUrl": "https://mailchimp.com/"
+    },
+    "fillBasicInfoApi_Url": {
+        "title": "Insightly",
+        "description": "A CRM for building lasting customer relationships",
+        "appLogoImageHolder": "insightlylogo.jpeg"
+    },
+    "fillBasicInfoDoneDay": {
+        "title": "Done Day App",
+        "description": "Done Day category-defining Customer Experience Automation Platform (CXA), by QA.",
+        "appLogoImageHolder": "donedayapp.png"
+    },
+    "fillProductPageApi_Url": {
+        "appScreenshot": "logo.jpg",
+        "appCategoryDropdown": "CRM"
+    },
+    "fillBasic": {
+        "titleName_Unique": "MailChimp_",
+        "description": "MailChimp's category-defining Customer Experience Automation Platform (CXA), by QA."
+    },
+    "fillAuthFormApi_Url": {
+        "authTypeTextButtonExact": "API key + URL",
+        "baseUrl": "https://mailinator23095.api-us1.com",
+        "authAction": "/api/3/users",
+        "headerKey": "Api-Token",
+        "headerValue": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "urlGeneratedAssertText": "https://mailinator23095.api-us1.com/api/3/users"
+    },
+    "fillAuthFormBasic": {
+        "title": "MailChimp",
+        "description": "Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator",
+        "authType": "Basic",
+        "baseUrl": "https://mailchimp.com",
+        "action": "/",
+        "appBaseUrl": "https://mailchimp.com/",
+        "appLogoImageHolder": "mailchimp.png",
+        "authName": "Mailchimp Basic",
+        "username": "abdullah@integry.io",
+        "password": "meAabi13119",
+        "submitBtnText": "Proceed"
+    },
+    "pollApi_Url": {
+        "baseUrl": "https://api.na1.insightly.com",
+        "rawBaseUrl": "{{ authorization.token.extras.base_uri | raw }}",
+        "authAction": "/v3.1/Contacts/Search?updated_after_utc={{ (polling.last_polled_at > 0 ? polling.last_polled_at | date('Y-m-d H:i:s') : 'now' | date('Y-m-d H:i:s')) }}",
+        "headerKey": "Authorization",
+        "baseUrlOption": "base_uri",
+        "headerValue": "Basic {{authorization.token.access_token}}",
+        "header2OptionTextButton": "Content-Type",
+        "header2Value": "application/json",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue",
+        "limitCount": "top",
+        "limitValue": "1000",
+        "offsetParameter": "skip",
+        "objectName": "Contact V1"
+    },
+    "triggerDetailPage": {
+        "name": "trigger",
+        "description": "Triggers when a new contact is created",
+        "authType": "API key + URL",
+        "inputObjValue": "Contact V1",
+        "objActionValue": "Create",
+        "pollEndpoint": "Create new endpoint",
+        "propertyNameText": "CONTACT_ID"
+    },
+    "queryDetailPage": {
+        "name": "query",
+        "description": "Import all contacts",
+        "authType": "API key + URL",
+        "inputObjValue": "Contact V1",
+        "objActionValue": "Get",
+        "pollEndpoint": "Create new endpoint",
+        "propertyNameText": "CONTACT_ID"
+    },
+    "fillAuthPopupApi_Url": {
+        "authenticationName": "Insightly Integration",
+        "authBaseUrl": "https://mailinator23095.api-us1.com",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "fillAuthPopupBasic": {
+        "authenticationName": "Mailchimp Basic",
+        "username": "abdullah@integry.io",
+        "password": "meAabi13119"
+    },
+    "fillAuthPopupApi_Key": {
+        "authApi": "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"
+    },
+    "authSuccessAssertions": {
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueAssertText": "Continue"
+    },
+    "selectAndFillActivityTypeAction": {
+        "activityclickNth": 0,
+        "name": "Test Action",
+        "description": "Test : Action Created by Automation Bot."
+    },
+    "selectAndFillActivityTypeTrigger": {
+        "activityclickNth": 1,
+        "name": "Test Trigger",
+        "description": "Test : Trigger Created by Automation Bot."
+    },
+    "connectedAccount": {
+        "connectedAssertion": "Connected"
+    },
+    "selectAndFillActivityTypeQuery": {
+        "activityclickNth": 2,
+        "name": "Test Query",
+        "description": "test : Query Created by Automation Bot."
+    },
+    "addTextFieldToActivity": {
+        "fieldType": "Textfield",
+        "title": "Email",
+        "titleDescription": "Created by Bot.",
+        "placeholder": "Enter subscriber email"
+    },
+    "addTextFieldToActivitySecond": {
+        "fieldType": "Textfield",
+        "title": "Name",
+        "titleDescription": "Created by Bot.",
+        "placeholder": "Enter subscriber name"
+    },
+    "activityAssertions": {
+        "continueAssertText": "Continue"
+    },
+    "fillActivityForm": {
+        "email_Unique": "qa+1@test.com",
+        "firstName_Unique": "qa_1"
+    },
+    "jsonInputActionApi_Url": {
+        "payloadJsonInput": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.name}}\"}"
+        ]
+    },
+    "jsonInputTriggerApi_Url": {
+        "payloadJsonInput": [
+            "{\"EMAIL_ADDRESS\":\"{requestBody.data.mail}\",",
+            "\"FIRST_NAME\":\"{requestBody.data.name}\"}"
+        ]
+    },
+    "sendApiCallApi_Url": {
+        "baseUrl": "https://api.na1.insightly.com",
+        "authAction": "/v3.1/Contacts",
+        "headerKey": "Authorization",
+        "headerValue": "Basic {{authorization.token.access_token}}",
+        "header2OptionTextButton": "Content-Type",
+        "header2Value": "application/json",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue"
+    },
+    "sendQueryApiCall": {
+        "baseUrl": "https://api.github.com",
+        "headerKey": "Authorization",
+        "headerValue": "/users/test/repos",
+        "pageLimit": "1",
+        "pageSize": "1",
+        "pageOffSet": "1",
+        "totalItems": "1",
+        "dynamicPage": "1",
+        "dynamicOffSet": "1",
+        "nextLink": "1",
+        "itemVariable": "1",
+        "increamentVariable": "1",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue"
+    },
+    "sendApiCallBasic": {
+        "baseUrl": "https://mailchimp.com/",
+        "authAction": "/api/3/contacts",
+        "headerKey": "Api-Token",
+        "headerValue": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "header2OptionTextButton": "Content-Type",
+        "header2Value": "application/json",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue"
+    },
+    "connectorSuccess": {
+        "connectorCompletionSuccessMsg": "Congratulations! You’ve completed your Connector."
+    },
+    "completeActivity": {
+        "testResultTextButton": "Test Result",
+        "continueTextButton": "Continue",
+        "continueTextButton2": "Continue",
+        "bannerSuccessMsg": "All done here! Let’s proceed.",
+        "navActivitiesTextButton": "Activities"
+    },
+    "fillAuthInfo": {
+        "baseUrl": "https://api.na1.insightly.com",
+        "action": "/v3.1/Users/me",
+        "apiTokenKey": "Authorization ",
+        "authType": "API key + URL",
+        "authName": "Insightly Integration",
+        "authBaseUrl": "https://api.na1.insightly.com",
+        "authApi": " Basic {{authorization.token.access_token}} ",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "reqUrl": "https://api.na1.insightly.com/v3.1/Users/me",
+        "submitBtnText": "Proceed",
+        "apiKey": "b6150dda-34dd-46a2-9d12-034e279cb782"
+    },
+    "fillDoneDayAuthInfo": {
+        "baseUrl": "https://doneday.integry.io",
+        "reqUrl": "https://doneday.integry.io/api",
+        "action": "/api",
+        "apiTokenValue": "8pjI97clYJO7q9RM7VYy",
+        "apiTokenKey": "Authorization",
+        "authType": "API Secret",
+        "authName": "basic-auth-type",
+        "authApi": "iVHcu0Tt8DAQvWr7XHTS",
+        "submitBtnText": "Proceed"
+    },
+    "authorizatonType": {
+        "authType": "API key + URL",
+        "authVerificationEndpoint": "Create new endpoint"
+    },
+    "selectAuthorizatonType": {
+        "authType": "Basic",
+        "authVerificationEndpoint": "Create new endpoint",
+        "endpointName": "user EndPoint",
+        "requestMethodDropdown": "GET",
+        "baseUrlDropdown": "Base URl",
+        "endpointUrl_path": "/"
+    },
+    "endpointApi_Url": {
+        "endpointName": "userInfo Endpoint",
+        "requestMethodDropdown": "GET",
+        "baseUrlDropdown": "Base URl",
+        "endpointUrl_path": "/v3.1/Users/me",
+        "trackingPropertyName": "CONTACT_ID",
+        "header0Value": "Basic {{authorization.token.access_token}}",
+        "header1KeyDropdown": "Content-Type",
+        "header1ValueDropdown": "application/json",
+        "baseUrlDropDownIcon": "Base URl"
+    },
+    "donedayendpointApi_Url": {
+        "endpointName": "API key user info endpoint",
+        "requestMethodDropdown": "GET",
+        "headerValue": "X-API-KEY",
+        "baseUrlDropdown": "Base URl",
+        "endpointUrl_path": "/user",
+        "trackingPropertyName": "CONTACT_ID",
+        "header0Value": "{{ authorization.token.access_token }}",
+        "baseUrlDropDownIcon": "https://doneday.integry.io/api"
+    },
+    "authorizatonApiType": {
+        "authType": "API key",
+        "authVerificationEndpoint": "Create new endpoint",
+        "authName": "API-Key---XHTS"
+    },
+    "fillAuthorizationForm": {
+        "authenticationname": "basic-auth-type",
+        "authBaseUrlInput": "https://mailinator23095.api-us1.com",
+        "authApiInput": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "authSuccess": {
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed."
+    },
+    "actionPage": {
+        "createActionText": "Create Action",
+        "actionNameText": "Insightly Action",
+        "actionDescription": "Test : Action Created by Automation Bot.",
+        "authType": "API key + URL",
+        "actionObjectText": "Contact V1",
+        "objectAction": "Create",
+        "FirstactivityName": "First Name",
+        "firstMachineName": "FIRST_NAME",
+        "firstObjectFieldValue": "first_name",
+        "fieldDiscription": "Enter contact's first name",
+        "regexValidator": "Regular Expression to Validate Input Text",
+        "secondFieldName": "Email",
+        "secondMachineValue": "EMAIL_ADDRESS",
+        "secondObjectField": "email",
+        "secondFieldDes": "Enter contact's email address",
+        "createActionEndpoint": "Create new endpoint"
+    },
+    "actionEndpoint": {
+        "endpointName": "Create Contact V1",
+        "apiRequestType": "POST",
+        "baseUrl": "Base URl",
+        "endpoint": "/v3.1/Contacts",
+        "actionObjectText": "Contact V1",
+        "objectAction": "Create",
+        "header1KeyDropdown": "Content-Type",
+        "header1ValueDropdown": "application/json",
+        "accountName": "Insightly Integration",
+        "firstField": "Abdullah",
+        "emailField": "abdullah@integry.io"
+    },
+    "triggerEndpoint": {
+        "endpointName": "contact created Trigger endpoint",
+        "apiRequestType": "GET",
+        "triggerPageAssertion": "Create Endpoint",
+        "baseUrl": "Base URl",
+        "endpoint": "/v3.1/Contacts/Search?updated_after_utc={{ (polling.last_polled_at > 0 ? polling.last_polled_at | date('Y-m-d H:i:s') : 'now' | date('Y-m-d H:i:s')) }}",
+        "actionObjectText": "Contact V1",
+        "objectAction": "Create",
+        "header1KeyDropdown": "Content-Type",
+        "header1ValueDropdown": "application/json",
+        "accountName": "Insightly Integration",
+        "firstField": "Abdullah",
+        "emailField": "abdullah@integry.io",
+        "trackingPropertyName": "CONTACT_ID",
+        "limitCount": "NumRows",
+        "limitValue": "50",
+        "offset": "Page"
+    },
+    "queryEndpoint": {
+        "endpointName": "Get contacts Query endpoint",
+        "apiRequestType": "GET",
+        "queryPageAssertion": "Create Endpoint",
+        "baseUrl": "Base URl",
+        "endpoint": "/v3.1/Contacts",
+        "actionObjectText": "Contact V1",
+        "objectAction": "Get",
+        "header1KeyDropdown": "Content-Type",
+        "header1ValueDropdown": "application/json",
+        "accountName": "Insightly Integration",
+        "trackingPropertyName": "CONTACT_ID"
+    },
+    "addFieldPage": {
+        "fieldTitle": "email",
+        "field2Title": "name"
+    },
+    "fillJsonEditor": {
+        "payloadJsonInput": [
+            "{# you can add/remove more fields from this request body and shape it as your api requires #}",
+            "{",
+            "'contact':",
+            "{",
+            "'email': '{{requestBody.data.email}}',",
+            "'first name': '{{requestBody.data.first_name}}'"
+        ]
+    },
+    "triggerPage": {
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "triggername": "Active Campaign trigger",
+        "triggerDescription": "This is for testing purpose.",
+        "fieldTitle": "email",
+        "field2Title": "name"
+    },
+    "assertions": {
+        "continueMsg": "Continue"
+    },
+    "v4": {
+        "baseUrlType": "https://mailchimp.com/",
+        "description": "Description of testing app",
+        "dropDownContain": "Basic",
+        "verifyAuthorization": "Your test was successful! Let’s proceed.",
+        "authType": "basic-auth-type",
+        "authUserName": "abdullah@integry.io",
+        "authPassword": "meAabi13119",
+        "triggerNameText": "Integry trigger",
+        "triggerDescriptionText": "This is for testing purpose.",
+        "fieldTitle": "Testing",
+        "updateDescription": "Update Integry connector.",
+        "appUrl": "https://www.activecampaign.com/",
+        "authTypeAc": "API key + URL",
+        "acAppBaseUrl": "https://mailinator23095.api-us1.com",
+        "authAction": "/api/3/users",
+        "authHeader": "Api-Token",
+        "fieldFirstName": "abdullah",
+        "fieldEmail": "@integry.io",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "authHeader2": "application/json",
+        "actionName": "Active campaign Action",
+        "actionDescription": "testing",
+        "fieldName": "email",
+        "secondfieldName": "first name",
+        "statusBanner": "All done here! Let’s proceed.",
+        "bannerSuccess": "Your test was successful! Let’s proceed.",
+        "triggerAction": "/api/3/contacts",
+        "acAuthType": "API key + URL",
+        "appBaseUrl": "https://Integry.io",
+        "baseUrlDropDownIcon": "https://doneday.integry.io/api"
+    },
+    "bannerSuccessMsg": "Your test was successful! Let’s proceed.",
+    "activitiesRoute": "/edit/activities/create",
+    "activitiesStep": "Activities",
+    "apiKeySecret": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_url": "https://trello.com/",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://api.trello.com/1",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "app_name": "Trello_",
+            "app_description": "Trello is a Kanban-style, list making app that helps you organize and plan projects and more. Go from an idea to action in seconds with boards, lists and cards.",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/dda34370-b34b-4acd-892a-bea6a35694eb.png",
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/members/me?key={{authorization.token.access_token.api_key}}&token={{authorization.token.access_token.api_secret}}",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "baseUrl": "https://trello.com/",
+        "title": "Trello",
+        "description": "Trello is a Kanban-style, list making app that helps you organize and plan projects and more. Go from an idea to action in seconds with boards, lists and cards.",
+        "apiBaseUrlHeader": "https://app.integry.io/endpoints/requestbin/",
+        "headerBaseUrl": "https://app.integry.io/endpoints/requestbin/",
+        "authType": "API key + secret",
+        "endpointName": "User Info endpoint",
+        "authVerificationEndpoint": "User Info endpoint",
+        "appBaseUrl": "https://api.trello.com/1",
+        "appLogoImageHolder": "trelloapp.png",
+        "endpointUrl_path": "/members/me?key={{authorization.token.access_token.api_key}}&token={{authorization.token.access_token.api_secret}}",
+        "authName": "Integry Trello Integration",
+        "apiKey": "7ae82934083cf8f22c80f4cdb3dbadd4",
+        "apiSecret": "e61301a08edef4d6c7626aeb580b6e184a7a980687718b4d72a77b3321afd68c",
+        "submitBtnText": "Proceed",
+        "baseUrlDropdown": "Base URl",
+        "requestMethodDropdown": "GET",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected"
+    },
+    "apiKeySecretRegion": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_name": "AmazonSES_",
+            "app_description": "Amazon Simple Email Service (SES) is a cost-effective, flexible, and scalable email service that enables developers to send mail from within any application.",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/f29663c8-5545-4ce8-adca-70ab6fa72e26.png",
+            "app_url": "https://aws.amazon.com/ses/",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://us-central1-integry-app.cloudfunctions.net",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "post",
+            "request_template": "{\"endpoint\":\"GetUser\",\n\"region\":\"{{authorization.token.access_token.region}}\",\n\"aws_key_secret\":\"{{ authorization.token.access_token.api_secret}}\",\n\"aws_key_id\":\"{{authorization.token.access_token.api_key}}\"\n}",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/AWS_SES_v2",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "baseUrl": "https://aws.amazon.com/ses/",
+        "title": "AmazonSES",
+        "description": "Amazon Simple Email Service (SES) is a cost-effective, flexible, and scalable email service that enables developers to send mail from within any application.",
+        "apiBaseUrlHeader": "Base URL 2",
+        "headerBaseUrl": "https://us-central1-integry-app.cloudfunctions.net",
+        "authType": "API key + secret + region",
+        "endpointName": "User Info endpoint",
+        "authVerificationEndpoint": "User Info endpoint",
+        "appBaseUrl": "https://us-central1-integry-app.cloudfunctions.net",
+        "appLogoImageHolder": "amazonses.png",
+        "endpointUrl_path": "/AWS_SES_v2",
+        "authName": "Integry Amazon Integration",
+        "apiKey": "AKIA5KQEGHUL7PIH2ZXO",
+        "apiSecret": "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",
+        "region": "us-east-1",
+        "submitBtnText": "Submit",
+        "baseUrlDropdown": "Base URl",
+        "requestMethodDropdown": "POST",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected"
+    },
+    "apiSecret": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_url": "https://app.convertkit.com",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://api.convertkit.com",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "app_name": "ConvertKit_",
+            "app_description": "ConvertKit is a creator marketing platform for online creators",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/4c9d3511-0dad-45ee-897a-06ba7a8149f8.png",
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/v3/account?api_secret={{authorization.token.access_token}}",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "endpointName": "User Info endpoint",
+        "homepageUrl": "https://convertkit.com/",
+        "title": "ConvertKit",
+        "baseUrlDropdown": "Base URL 22",
+        "description": "ConvertKit is a creator marketing platform for online creators",
+        "authType": "API Secret",
+        "baseUrl": "https://app.convertkit.com",
+        "appBaseUrl": "https://api.convertkit.com",
+        "apiBaseUrlHeader": "test",
+        "requestMethodDropdown": "GET",
+        "headerBaseUrl": "https://api.convertkit.com",
+        "authVerificationEndpoint": "User Info endpoint",
+        "appLogoImageHolder": "convertkit.png",
+        "endpointUrl_path": "/v3/account?api_secret={{authorization.token.access_token}}",
+        "reqUrl": "https://app.convertkit.com/users/login",
+        "apiTokenKey": "Api-Token",
+        "apiTokenValue": "API Secret(io7T_WbYPU7p0PWWRIdZQVMnO2IGBy4TXac15rM2cY8)",
+        "authName": "Integry ConvertKit Integration",
+        "apiSecret": "io7T_WbYPU7p0PWWRIdZQVMnO2IGBy4TXac15rM2cY8",
+        "submitBtnText": "Proceed",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected"
+    },
+    "actionConnectAccount": {
+        "connectionLabel": "Insightly Integration",
+        "connectionStatus": "Connected"
+    },
+    "actionConnect": {
+        "connectionLabel": "Mailchimp Basic",
+        "connectionStatus": "Connected"
+    },
+    "apiSecretTrigger": {
+        "name": "Subscriber Added",
+        "description": "Triggers when a subscriber is added",
+        "textfield": [
+            {
+                "fieldType": "Textfield",
+                "title": "First Name",
+                "titleDescription": "Subscriber first name",
+                "placeholder": "Enter subscriber first name",
+                "value": "John Doe"
+            }
+        ],
+        "connectionLabel": "Integry ConvertKit Integration",
+        "connectionStatus": "Connected",
+        "stepName": "Poll API Call",
+        "reqType": "GET",
+        "baseUrl": "https://api.convertkit.com",
+        "action": "/v3/subscribers?api_secret={{authorization.token.access_token}}",
+        "reqUrl": "https://api.convertkit.com/v3/subscribers?api_secret={{authorization.token.access_token}}"
+    },
+    "apiKeyURL": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_url": "http://www.insightly.com",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://api.na1.insightly.com",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "api_version": "v3.1",
+            "app_name": "Insightly_",
+            "app_description": "A CRM for building lasting customer relationships",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/4e1ebaa3-1982-4145-8098-dab714571424.jpeg",
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "Authorization",
+                    "value": "Basic {{authorization.token.access_token}}",
+                    "rkey": 1,
+                    "header_name": "Authorization"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "rkey": 2,
+                    "header_name": "Content-Type"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/v3.1/Users/me",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "triggerEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "Authorization",
+                    "value": "Basic {{ authorization.token.access_token }}",
+                    "rkey": 1,
+                    "header_name": "Authorization"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "rkey": 2,
+                    "header_name": "Content-Type"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "CONTACT_ID",
+            "endpoint_type": 459,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Response of your Poll API call must be a JSON array in order for it to work properly. If your API doesn't return the array of data at top most level of response, you need to output the array here at top level using Twig. Additionally, if the id or update time properties don't exist on objects with the exact names mentioned in above banner, then you can copy them on each object with required name too. #}\n{{response | json_encode | raw}}",
+            "endpoint_name": "Trigger endpoint: Get Contacts",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/v3.1/Contacts/Search?updated_after_utc={{ (polling.last_polled_at > 0 ? polling.last_polled_at | date('Y-m-d H:i:s') : 'now' | date('Y-m-d H:i:s')) }}",
+            "object_id": 3,
+            "endpoint_action": "CREATE",
+            "object_output_template": "{\n    \"contact_v1\": {\n        \"work_postal_code\": \"\",\n        \"last_name\": \"\",\n        \"surname\": \"\",\n        \"home_state\": \"\",\n        \"home_postal_code\": \"\",\n        \"profession\": \"\",\n        \"work_fax\": \"\",\n        \"other_country\": \"\",\n        \"home_address\": \"\",\n        \"work_street\": \"\",\n        \"id\": \"\",\n        \"home_fax\": \"\",\n        \"first_name\": \"\",\n        \"work_state\": \"\",\n        \"middle_name\": \"\",\n        \"title\": \"\",\n        \"work_phone\": \"\",\n        \"home_phone\": \"\",\n        \"religion\": \"\",\n        \"given_name\": \"\",\n        \"home_street\": \"\",\n        \"department\": \"\",\n        \"email\": \"\",\n        \"job_title\": \"\",\n        \"nick_name\": \"\",\n        \"mobile_phone\": \"\",\n        \"home_city\": \"\",\n        \"work_address\": \"\",\n        \"other_email\": \"\",\n        \"company\": \"\",\n        \"work_country\": \"\",\n        \"birthday\": \"\",\n        \"other_street\": \"\",\n        \"display_name\": \"\",\n        \"home_country\": \"\",\n        \"other_phone\": \"\",\n        \"family_name\": \"\",\n        \"lead_source\": \"\",\n        \"other_state\": \"\",\n        \"last_updated\": \"\",\n        \"created\": \"\",\n        \"other_fax\": \"\",\n        \"gender\": \"\",\n        \"other_postal_code\": \"\",\n        \"other_address\": \"\",\n        \"initials\": \"\"\n    }\n}",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "createAuth": {
+            "type_id": "APIKeyWithURL",
+            "userinfo_uri_endpoint": "<endpointId>",
+            "userinfo_uri_endpoint_v2": "<endpointId>",
+            "user_identity_field": "user_identity",
+            "authorization_uri": "/auth/apikey-with-url/config",
+            "app": "<appId>"
+        },
+        "trigger": {
+            "pre_save_endpoint": "",
+            "post_save_endpoint": "",
+            "pre_delete_endpoint": "",
+            "post_delete_endpoint": "",
+            "pre_update_endpoint": "",
+            "post_update_endpoint": "",
+            "activity_fields": [],
+            "publishing_status": "DRAFT",
+            "is_polling_based": true,
+            "is_published": false,
+            "name": "Trigger the new created Contacts.",
+            "activity_description": "Triggers when a new contact is created",
+            "object_id": 3,
+            "activity_action": "CREATE",
+            "type": "TRIGGER",
+            "authorization_type": 26183,
+            "polling_endpoint_ref": 113694,
+            "app": 34549
+        },
+        "homepageUrl": "https://www.insightly.com/",
+        "title": "Insightly",
+        "description": "A CRM for building lasting customer relationships",
+        "authType": "API key + URL",
+        "action": "/v3.1/Users/me",
+        "reqUrl": "https://api.na1.insightly.com/v3.1/Users/me",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "authName": "Insightly Integration",
+        "apiKey": "b6150dda-34dd-46a2-9d12-034e279cb782",
+        "submitBtnText": "Proceed",
+        "baseUrl": "https://api.na1.insightly.com",
+        "appBaseUrl": "https://api.insight.ly",
+        "headerBaseUrl": "{{authorization.token.extras.base_uri | raw}}",
+        "apiBaseUrlHeader": "Base URl",
+        "apiVersion": "v3.1",
+        "appLogoImageHolder": "insightlylogo.jpeg",
+        "authVerificationEndpoint": "User Info endpoint",
+        "endpointName": "User Info endpoint",
+        "requestMethodDropdown": "GET",
+        "baseUrlDropdown": "Base URl",
+        "endpointUrl_path": "/v3.1/Users/me",
+        "trackingPropertyName": "CONTACT_ID",
+        "header0Value": "Basic {{authorization.token.access_token}}",
+        "header1KeyDropdown": "Content-Type",
+        "header1ValueDropdown": "application/json",
+        "baseUrlDropDownIcon": "Base URl",
+        "apiTokenKey": "Authorization ",
+        "authBaseUrl": "https://api.na1.insightly.com",
+        "authApi": " Basic {{authorization.token.access_token}} ",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected"
+    },
+    "basicURL": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_url": "https://www.zendesk.com/",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://integry-io.zendesk.com",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "app_name": "Zendesk_",
+            "app_description": "Zendesk makes customer service better",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/05d19fdb-cb44-461b-9638-1eea310f1dea.jpg",
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "Basic",
+                    "value": "{{authorization.token.access_token}}",
+                    "rkey": 1,
+                    "header_name": "Basic"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/api/v2/users/me/",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "baseUrl": "https://www.zendesk.com/",
+        "title": "Zendesk",
+        "description": "Zendesk makes customer service better",
+        "authType": "Basic + URL",
+        "appBaseUrl": "https://integry-io.zendesk.com",
+        "appLogoImageHolder": "zendesk.jpg",
+        "endpointUrl_path": "/api/v2/users/me/",
+        "reqUrl": "https://integry-io.zendesk.com/api/v2/users/me/",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "authVerificationEndpoint": "User Info endpoint",
+        "authName": "Integry Zendesk Integration",
+        "username": "sitwat@integry.io",
+        "header0Value": "{{authorization.token.access_token}}",
+        "password": "Pakistan.97",
+        "submitBtnText": "Proceed",
+        "endpointName": "User Info endpoint",
+        "requestMethodDropdown": "GET",
+        "baseUrlDropdown": "Base URl",
+        "headerValue": "Basic",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected"
+    },
+    "jiraBasicURL": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_url": "https://www.atlassian.com/",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://integryqa.atlassian.net/",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "app_name": "Jira_",
+            "app_description": "Jira is a proprietary issue tracking product developed by Atlassian that allows bug tracking and agile project management.",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/a3403ffc-9883-4a49-8d30-4e8c7f308a10.png",
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "Authorization",
+                    "value": "Basic {{query.access_token is not empty ? query.access_token : authorization.token.access_token}}",
+                    "rkey": 1,
+                    "header_name": "Authorization"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "rkey": 2,
+                    "header_name": "Content-Type"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/rest/api/3/myself",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "authVerificationEndpoint": "User Info endpoint",
+        "endpointName": "User Info endpoint",
+        "baseUrl": "https://integryqa.atlassian.net/",
+        "appLogoImageHolder": "jira.png",
+        "title": "Atlassian",
+        "description": "We help teams across the world become more nimble, creative, and aligned",
+        "authType": "Jira Basic + URL",
+        "appBaseUrl": "https://integryqa.atlassian.net/",
+        "action": "/rest/api/3/myself",
+        "apiVersion": "1.0",
+        "reqUrl": "https://integryqa.atlassian.net/rest/api/3/myself",
+        "authKey": "Authorization",
+        "authValue": "Basic {{query.access_token is not empty ? query.access_token : authorization.token.access_token}}",
+        "contentTypeKey": "Content-Type",
+        "contentTypeValue": "application/json",
+        "authName": "Integry Atlassian Integration",
+        "username": "abdullah@integry.io",
+        "password": "4F580dLjswJYdXtPLxUpA514",
+        "submitBtnText": "Proceed",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected"
+    },
+    "oauth2": {
+        "appData": {
+            "app_version": 3,
+            "category": [],
+            "is_workspace": false,
+            "app_name": "Mailchimp_",
+            "app_description": "Mailchimp is a leading all-in-one marketing and commerce platform for entrepreneurs",
+            "icon_url": "https://storage.googleapis.com/app-services-bucket/public/abd83763-bc4c-4764-9af6-6a7cba3d517c.png",
+            "app_url": "https://www.mailchimp.com",
+            "base_urls": [
+                {
+                    "id": "",
+                    "name": "Base URL 0",
+                    "url": "https://login.mailchimp.com/oauth2",
+                    "rkey": 1,
+                    "headers": []
+                }
+            ],
+            "api_version": 1.0,
+            "api_version_deprecation": null,
+            "last_version_checked": null
+        },
+        "userInfoEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "Authorization",
+                    "value": "OAuth {{ query.access_token }}",
+                    "rkey": 1,
+                    "header_name": "Authorization"
+                },
+                {
+                    "key": "Content-Type",
+                    "value": "text/plain",
+                    "rkey": 2,
+                    "header_name": "Content-Type"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "create-new-base-url": "",
+            "endpoint_action": "GET",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 454,
+            "source_type": "poll",
+            "http_verb": "get",
+            "request_template": "",
+            "response_template": "{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \"response\" object. #}\n{\n  \"user_identity\": \"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\"\n}",
+            "endpoint_name": "User Info endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/metadata",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "tokenEndpoint": {
+            "app_id": "<appId>",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "rkey": 2,
+                    "header_name": "Content-Type"
+                }
+            ],
+            "headersKeys": 1,
+            "push_payload_type": "object",
+            "compound_statements": "{\"relation\":\"AND\",\"conditions\":[{\"operand_1\":\"\",\"operator\":\"=\",\"operand_2\":\"\"}]}",
+            "pg_default_page_size": 0,
+            "is_pagination": false,
+            "tracking_property_name": "",
+            "endpoint_type": 453,
+            "source_type": "poll",
+            "http_verb": "post",
+            "request_template": "{\n\"client_id\": \"{{ requestBody.client_id }}\",\n\"redirect_uri\": \"{{ requestBody.redirect_uri }}\",\n\"client_secret\": \"{{ requestBody.client_secret }}\",\n\"code\": \"{{ requestBody.code }}\",\n\"grant_type\": \"authorization_code\"\n}",
+            "response_template": "{\n        \"access_token\": \"{{ response.access_token }}\",\n        \"refresh_token\": \"{{ response.refresh_token }}\",\n        \"extras\": {}\n      }",
+            "endpoint_name": "Token URI endpoint",
+            "base_url_id": "<baseUrlId>",
+            "url_path": "/token",
+            "set_name": null,
+            "lookup_key": null,
+            "lookup_value": null,
+            "base_url_raw": "",
+            "query_configuration": ""
+        },
+        "clientIdProd": "416714045473",
+        "clientSecretProd": "b3ae42375114b0d3f86f9ee4e5d5953844a11f5fa215dcf0f5",
+        "username": "integryTest",
+        "password": "123Canon##",
+        "clientIdStage": "942014430374",
+        "clientSecretStage": "9bfbcdaeacd6958df6a95d2b0c7c6b216215cafb3a964e0fec",
+        "baseUrl": "https://login.mailchimp.com",
+        "title": "Mailchimp",
+        "description": "Mailchimp is a leading all-in-one marketing and commerce platform for entrepreneurs",
+        "appLogoImageHolder": "mailchimp.png",
+        "authType": "OAuth 2.0",
+        "authVerificationEndpoint": "User Info endpoint",
+        "endpointName": "User Info endpoint",
+        "requestMethodDropdown": "GET",
+        "endpointUrl_path": "/metadata",
+        "headerFirstValue": "Authorization",
+        "header0Value": "OAuth {{ query.access_token }}",
+        "header1KeyDropdown": "Content-Type",
+        "header1Value": "application/json",
+        "clientIds": "",
+        "clientSecrets": "",
+        "grantType": "Authorization Code",
+        "authorizationUri": "https://login.mailchimp.com/oauth2/authorize?response_type=code",
+        "headerBaseUrl": "Base URL 0",
+        "appBaseUrl": "https://login.mailchimp.com/oauth2",
+        "tokenAction": "/oauth2/token",
+        "tokenUrl": "https://login.mailchimp.com/oauth2/token",
+        "logInBtnText": "Log in",
+        "allowBtnText": "Allow",
+        "tokenSuccessMsg": "New access token successfully received! Let's proceed",
+        "action": "/oauth2/metadata",
+        "reqUrl": "https://login.mailchimp.com/oauth2/metadata",
+        "authKey": "Authorization",
+        "authValue": "OAuth {{authorization.token.access_token}}",
+        "contentTypeKey": "Content-Type",
+        "contentTypeValue": "text/plain",
+        "processResStep": "Response Processing",
+        "runBtnText": "Run ",
+        "statusSuccessMsg": "All done here! Let’s proceed.",
+        "continueBtnText": "Continue",
+        "otherInfoStep": "Other Information",
+        "doneBtnText": "Done",
+        "apiVersion": 1,
+        "authName": "||",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected",
+        "tokenEndpoints": {
+            "endpointName": "Token Endpoint",
+            "requestMethodDropdown": "POST",
+            "endpointUrl_path": "/token",
+            "baseUrlDropdown": "Base URL 0"
+        }
+    },
+    "slack": {
+        "clientIdProd": "416714045473",
+        "clientSecretProd": "b3ae42375114b0d3f86f9ee4e5d5953844a11f5fa215dcf0f5",
+        "username": "integryTest",
+        "password": "123Canon##",
+        "clientIdStage": "942014430374",
+        "clientSecretStage": "9bfbcdaeacd6958df6a95d2b0c7c6b216215cafb3a964e0fec",
+        "baseUrl": "https://login.mailchimp.com",
+        "title": "Slack",
+        "description": "Mailchimp is a leading all-in-one marketing and commerce platform for entrepreneurs",
+        "appLogoImageHolder": "mailchimp.png",
+        "authType": "OAuth 2.0",
+        "domain": "integry-io",
+        "authVerificationEndpoint": "User Info endpoint",
+        "endpointName": "User Info endpoint",
+        "requestMethodDropdown": "GET",
+        "endpointUrl_path": "/metadata",
+        "headerFirstValue": "Authorization",
+        "header0Value": "OAuth {{ query.access_token }}",
+        "header1KeyDropdown": "Content-Type",
+        "header1Value": "application/json",
+        "clientIds": "",
+        "clientSecrets": "",
+        "grantType": "Authorization Code",
+        "authorizationUri": "https://login.mailchimp.com/oauth2/authorize?response_type=code",
+        "headerBaseUrl": "Base URL 0",
+        "appBaseUrl": "https://login.mailchimp.com/oauth2",
+        "tokenAction": "/oauth2/token",
+        "tokenUrl": "https://login.mailchimp.com/oauth2/token",
+        "logInBtnText": "Log in",
+        "allowBtnText": "Allow",
+        "tokenSuccessMsg": "New access token successfully received! Let's proceed",
+        "action": "/oauth2/metadata",
+        "reqUrl": "https://login.mailchimp.com/oauth2/metadata",
+        "authKey": "Authorization",
+        "authValue": "OAuth {{authorization.token.access_token}}",
+        "contentTypeKey": "Content-Type",
+        "contentTypeValue": "text/plain",
+        "processResStep": "Response Processing",
+        "runBtnText": "Run ",
+        "statusSuccessMsg": "All done here! Let’s proceed.",
+        "continueBtnText": "Continue",
+        "otherInfoStep": "Other Information",
+        "doneBtnText": "Done",
+        "apiVersion": 1,
+        "authName": "||",
+        "authSuccessMsg": "200OKView details",
+        "connectedAssertion": "Connected",
+        "tokenEndpoints": {
+            "endpointName": "Token Endpoint",
+            "requestMethodDropdown": "POST",
+            "endpointUrl_path": "/token",
+            "baseUrlDropdown": "Base URL 0"
+        }
+    },
+    "insightlyActions": {
+        "app": "Insightly",
+        "activityType": "action",
+        "activityBtnText": "Create New Activity",
+        "name": "Create Contact",
+        "description": "Creates a new contact",
+        "textPassHideFields": [
+            {
+                "fieldType": "Hidden",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac1+test@integry.io"
+            },
+            {
+                "fieldType": "Password",
+                "title": "First Name",
+                "titleDescription": "contact first name",
+                "placeholder": "Enter contact first name",
+                "value": "John"
+            },
+            {
+                "fieldType": "Textarea",
+                "title": "Last Name",
+                "titleDescription": "contact last name",
+                "placeholder": "Enter contact last name",
+                "value": "Doe"
+            }
+        ],
+        "textDateTimeFields": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac2+test@integry.io"
+            },
+            {
+                "fieldType": "Date",
+                "title": "Meeting Date",
+                "titleDescription": "contact meeting date",
+                "placeholder": "Enter contact meeting date",
+                "value": "2022-01-01"
+            },
+            {
+                "fieldType": "Time",
+                "title": "Meeting Time",
+                "titleDescription": "contact meeting time",
+                "placeholder": "Enter contact meeting time",
+                "value": "12:00"
+            }
+        ],
+        "checkboxRadioFields": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "value": "qac3+test@integry.io"
+            },
+            {
+                "fieldType": "Checkbox",
+                "title": "List",
+                "titleDescription": "contact multi-select list",
+                "endpointName": "list source",
+                "baseUrl": "https://api.na1.insightly.com",
+                "action": "/v3.1/Leads",
+                "reqUrl": "https://api.na1.insightly.com/v3.1/Leads",
+                "reqType": "GET",
+                "activityType": "action",
+                "authKey": "Authorization",
+                "authValue": "Basic {{authorization.token.access_token}}",
+                "successMessage": "Your test was successful! Let’s proceed.",
+                "jsonCode": [
+                    "[{% for list in response %}",
+                    "{\"id\":\"{{list.LAST_NAME}}\",",
+                    "\"value\":\"{{list.LAST_NAME}}\"",
+                    "}",
+                    "{% if not loop.last %} , {% endif %}",
+                    "{% endfor %}",
+                    "]"
+                ],
+                "statusSuccessMsg": "All done here! Let’s proceed."
+            },
+            {
+                "fieldType": "Radio",
+                "title": "List",
+                "titleDescription": "Contact single-select list",
+                "endpointName": "list source"
+            }
+        ],
+        "dropdownField": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac4+test@integry.io"
+            },
+            {
+                "fieldType": "Dropdown",
+                "title": "List",
+                "titleDescription": "Contact dropdown list",
+                "endpointName": "list source",
+                "value": "Option 1"
+            }
+        ],
+        "fieldMapping": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac5+test@integry.io"
+            },
+            {
+                "fieldType": "Field Mapping",
+                "title": "Full Name",
+                "titleDescription": "Contact full name",
+                "addDataSource": "Add Source for Custom Field",
+                "endpointName": "field source",
+                "baseUrl": "https://api.na1.insightly.com",
+                "action": "/v3.1/CustomFields/Contact",
+                "reqUrl": "https://api.na1.insightly.com/v3.1/CustomFields/Contact",
+                "reqType": "GET",
+                "activityType": "action",
+                "authKey": "Authorization",
+                "authValue": "Basic {{authorization.token.access_token}}",
+                "successMessage": "Your test was successful! Let’s proceed.",
+                "jsonCode": [
+                    "[{% for field in response %}",
+                    "{\"id\":\"{{field.FIELD_ORDER}}\",",
+                    "\"type\":\"{{field.FIELD_TYPE}}\",",
+                    "\"title\":\"{{field.FIELD_LABEL}}\",",
+                    "\"description\":\"{{field.FIELD_LABEL}}\"",
+                    "}",
+                    "{% if not loop.last %} , {% endif %}",
+                    "{% endfor %}",
+                    "]"
+                ],
+                "statusSuccessMsg": "All done here! Let’s proceed.",
+                "value": "John Doe"
+            }
+        ],
+        "connectionLabel": "Insightly Integration",
+        "stepName": "API Call",
+        "baseUrl": "https://api.na1.insightly.com",
+        "action": "/v3.1/Contacts",
+        "reqUrl": "https://api.na1.insightly.com/v3.1/Contacts",
+        "reqType": "POST",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "jsonTextPassHideFields": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.first_name}}\",",
+            "\"LAST_NAME\":\"{{requestBody.data.last_name}}\"}"
+        ],
+        "jsonTextDateTimeFields": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.meeting_date}}\",",
+            "\"LAST_NAME\":\"{{requestBody.data.meeting_time}}\"}"
+        ],
+        "jsonCheckboxRadioFields": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.list}}\",",
+            "\"LAST_NAME\":\"{{requestBody.data.list_2}}\"}"
+        ],
+        "jsonDropdownField": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.list}}\"}"
+        ],
+        "jsonFieldMapping": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.full_name.1}}\"}"
+        ],
+        "runBtnText": "Run ",
+        "statusSuccessMsg": "All done here! Let’s proceed.",
+        "continueBtnText": "Continue",
+        "otherInfoStep": "Sample Output",
+        "doneBtnText": "Continue"
+    },
+    "updateBasicInfo": {
+        "description": "Active campaign connector Updated by Bot",
+        "authTypeTextButtonExact": "API key + URL",
+        "baseUrl": "https://mailinator23095.api-us1.com",
+        "authActionInput": "/api/3/users",
+        "fieldInputheader1": "Api-Token",
+        "fieldInputheader2": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "doneDayAppUrl": {
+        "appBaseUrl": "https://www.doneday.net/"
+    },
+    "updateV4": {
+        "search": "Testing",
+        "name": "Testing",
+        "description": "Update Integry",
+        "triggerName": "Active Campaign Connector update",
+        "triggerDescription": "Make trigger activity",
+        "authOption": "API key + URL",
+        "authBaseUrl": "https://mailinator23095.api-us1.com",
+        "authAction": "/api/3/users",
+        "authHeader": "Api-Token",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "authName": "update auth",
+        "triggerFieldEmail": "email",
+        "triggerFieldName2": "first name",
+        "fieldFirstName": "abdullah",
+        "fieldEmail": "@integry.io",
+        "authHeader2": "application/json",
+        "successMessage": "Your test was successful! Let’s proceed.",
+        "triggerAction": "/api/3/contacts",
+        "triggerSuccessMessage": "All done here! Let’s proceed.",
+        "doneDayApi": "8pjI97clYJO7q9RM7VYy"
+    },
+    "fillBaseUrlBasicGithub": {
+        "appBaseUrl": "https://github.com/"
+    },
+    "fillBasicInfoGithub": {
+        "titleName_Unique": "Github_",
+        "description": "Github's category-defining Customer Experience Automation Platform (CXA), by QA."
+    },
+    "fillAuthFormApi_Github": {
+        "authAction": "user",
+        "headerKey": "Authorization",
+        "urlGeneratedAssertText": "https://github.com/user"
+    },
+    "fillAuthFormApikey": {
+        "authTypeTextButtonExact": "API key",
+        "baseUrl": "https://github.com/"
+    },
+    "cloneConnector": {
+        "cloneMsg": "Your app has been cloned successfully!App Cloned",
+        "deleteMsg": "Connector has been deleted successfully!"
+    },
+    "fillGoogleSheetsInfo": {
+        "title": "Google Sheets",
+        "description": "Manage your data, sheets and, collaborate with your team in real-time. Perform data analysis with in-built formulae and charts.",
+        "appLogoImageHolder": "convertkit.png",
+        "apiFirstUrl": "Base URL 1",
+        "appBaseUrl": "https://www.googleapis.com",
+        "baseUrl": "https://sheets.google.com",
+        "userProfile": "https://www.google.com/",
+        "OauthSetupGuide": "https://developers.google.com/identity/protocols/oauth2",
+        "statusCode": "https://developers.google.com/sheets/api/reference/rest/v4/ErrorCode",
+        "authType": "OAuth 2.0",
+        "clientId": "314405265122-sltdna7161bt11am03ivhl8irke2ko09.apps.googleusercontent.com",
+        "clientSecret": "w2R8IWDe4r1bcIA4JQ887Keq",
+        "authorizationUri": "https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline",
+        "scope": "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/userinfo.profile",
+        "tokenEndpoint": "Create new endpoint",
+        "endpointPageHeading": "Create Endpoint",
+        "endpointName": "Token Endpoint",
+        "apiRequestType": "POST",
+        "baseUrlText": "Base URL 1",
+        "endpoint": "/oauth2/v4/token",
+        "header1KeyDropdown": "Content-Type",
+        "header1Value": "application/x-www-form-urlencoded",
+        "newEndpoint": "Create new endpoint",
+        "grandType": "Authorization Code"
+    },
+    "fillAuthVerificationEndpoint": {
+        "newEndpoint": "Create new endpoint",
+        "endpointName": "User Info Endpoint",
+        "endpointPageHeading": "Create Endpoint",
+        "apiRequestType": "GET",
+        "baseUrlText": "Base URL 1",
+        "endpoint": "/oauth2/v2/userinfo?alt=json&access_token={{query.access_token }}",
+        "header1KeyDropdown": "Authorization",
+        "firstHeaderValue": "Bearer {{ authorization.token.access_token }}"
+    },
+    "fillHubSpotInfo": {
+        "title": "HubSpot",
+        "description": "Hubspot is a platform that offers marketing, sales, customer service, and a full CRM software to help businesses grow.",
+        "appLogoImageHolder": "convertkit.png",
+        "apiFirstUrl": "Base URL 1",
+        "appBaseUrl": "https://api.hubapi.com",
+        "baseUrl": "https://www.hubspot.com/",
+        "OauthSetupGuide": "https://developers.hubspot.com/docs/api/working-with-oauth",
+        "authType": "OAuth 2.0",
+        "clientId": "469547d8-6bba-4fd3-8e6a-c0d9da5eed76",
+        "clientSecret": "47af89e9-f8b6-4de6-ad74-c3661f4de197",
+        "authorizationUri": "https://app.hubspot.com/oauth/authorize",
+        "scope": "content oauth crm.schemas.deals.read crm.objects.contacts.write crm.objects.companies.write crm.lists.write crm.objects.companies.read crm.lists.read crm.objects.deals.read crm.schemas.contacts.read crm.objects.deals.write crm.objects.contacts.read crm.schemas.companies.read",
+        "grandType": "Authorization Code",
+        "tokenEndpoint": "Create new endpoint",
+        "endpointPageHeading": "Create Endpoint",
+        "endpointName": "HubSpot - Get Access Token",
+        "apiRequestType": "POST",
+        "baseUrlText": "Base URL 1",
+        "endpoint": "/oauth/v1/token",
+        "header1KeyDropdown": "Content-Type",
+        "header1Value": "application/x-www-form-urlencoded"
+    },
+    "fillAuthEndpoint": {
+        "newEndpoint": "Create new endpoint",
+        "endpointName": "HubSpot - Get User Identity",
+        "endpointPageHeading": "Create Endpoint",
+        "apiRequestType": "GET",
+        "baseUrlText": "Base URL 1",
+        "endpoint": "/oauth/v1/access-tokens/{{query.access_token}}",
+        "header1KeyDropdown": "Authorization",
+        "firstHeaderValue": "Bearer {{ authorization.token.access_token }}"
+    },
+    "lessAnnoyingCRMInfo": {
+        "title": "Less Annoying CRM",
+        "description": "Less annoying CRM is designed from the ground up specifically for small businesses, so it's affordable, easy to understand, and well, less annoying. ",
+        "appLogoImageHolder": "lessannoyinglogo.png",
+        "apiFirstUrl": "Base URL 1",
+        "appBaseUrl": "https://api.lessannoyingcrm.com",
+        "baseUrl": "https://www.lessannoyingcrm.com",
+        "authType": "API key",
+        "endpointName": "action user info endpoint",
+        "requestMethodDropdown": "GET",
+        "baseUrlDropdown": "Create new Base URL",
+        "newEndpoint": "Create new endpoint",
+        "urlName": "Base URL 2",
+        "Url": "https://api.track.toggl.com",
+        "endpointUrl_path": "/api/v8/me",
+        "header0Value": "Basic YjA1YTE2NWM4YmE3YjhiZDJiODNhYWJmODkwZmY5NzU6YXBpX3Rva2Vu",
+        "apiKey": "806183-3854353915520189610553564526682-SYUTEsHzjQhW0mbxIx051jHfOZzKQhM0XczGXPDHhsIk9fQCaM",
+        "buttonText": "Proceed"
+    },
+    "lessAnnoyingCRMTrigger": {
+        "name": "Create Contact",
+        "description": "Triggers when a new contact is created",
+        "authType": "API key",
+        "pollEndpoint": "Create new endpoint",
+        "inputObjValue": "Contact V1",
+        "objActionValue": "Create",
+        "propertyNameText": "CONTACT_ID"
+    }
+}

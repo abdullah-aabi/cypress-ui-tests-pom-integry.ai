@@ -1,0 +1,48 @@
+{
+    "fillBasicInfoScreen": {
+        "continueAssertText": "Continue"
+    },
+    "fillMarketPlaceAppearnceScreen": {
+        "title": "Qa bot",
+        "description": "Created by QA bot."
+    },
+    "selectColorForMarketPlaceLogo": {
+        "colorBox": "#333333"
+    },
+    "fillCTA_BarInfo": {
+        "actionTitleTextBox": "Market place Integration created by QA bot.",
+        "actionDescriptionTextBox": "This is created by Qa bot for testing"
+    },
+    "v3": {
+        "title": "Testing",
+        "description": "this is for testing purpose.",
+        "color": "#333333",
+        "urlTextBox": "https://integry.io/"
+    },
+    "Sdk": {
+        "title": "Testing",
+        "description": "this is for testing purpose.",
+        "color": "#333333"
+    },
+    "addingCard": {
+        "successMsg": "Added Sample - Doneday tasks to Todoist to the MarketplaceFlow Added",
+        "searchOnline": "onLine Taxes",
+        "pageTitle": "Qa bot",
+        "successMsgOnlineTexas": "Added OnLine Taxes, to the MarketplaceFlow Added",
+        "searchFacebook": "Facebook Blueprint",
+        "successFacebook": "Added Facebook Blueprint to the MarketplaceFlow Added",
+        "searchNew": "new ",
+        "successCategory": "Added category “new ” and it's apps to the Marketplace Added",
+        "name": "Qa sanity testing",
+        "description": "Sanity testing is being performed."
+    },
+    "marketPlace": {
+        "signInText": "signIn"
+    },
+    "mPIntegration": {
+        "authName": "Insightly Integration",
+        "baseUrl": "https://api.na1.insightly.com",
+        "apiKey": "bcc7870b-7a4b-4d49-bd92-aaee19c3b5e1",
+        "statusIntegrationAssertion": "This integration cannot run because the admin has not configured end-user sign-in. If you are the admin, please go to the Settings tab for this marketplace and look for \"Sign-in for end-users\"."
+    }
+}

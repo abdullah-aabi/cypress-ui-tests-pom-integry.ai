@@ -1,0 +1,11 @@
+{
+    "json": [
+        "{",
+        "\"client_id\": \"{{ requestBody.client_id }}\",",
+        "\"redirect_uri\": \"{{ requestBody.redirect_uri }}\",",
+        "\"client_secret\": \"{{ requestBody.client_secret }}\",",
+        "\"code\": \"{{ requestBody.code }}\",",
+        "\"grant_type\": \"authorization_code\"",
+        "}"
+    ]
+}

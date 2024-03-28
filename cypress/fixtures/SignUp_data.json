@@ -1,0 +1,75 @@
+{
+    "validFields": {
+        "emailField_Unique": "test@",
+        "emailMsg": "This field is required.",
+        "passwordField": "meAabi13119",
+        "passwordMsg": "Password should contain at least 8 characters",
+        "firtNameField_Unique": "test_12345",
+        "lastNameField": "cypress",
+        "appUrl": "https://www.integry.io/",
+        "accountName": "test_12345",
+        "apps": "doneday, mailchimp",
+        "flows": "create a contact, update the app",
+        "hearAboutTextButton": "Email"
+    },
+    "mandatoryFields": {
+        "firtNameMsg": "This field is required.",
+        "lastNameMsg": "This field is required.",
+        "emailMsg": "This field is required.",
+        "passwordMsg": "This field is required.",
+        "appLinkErrorMsg": "This field is required.",
+        "accountNameErrorMsg": "This field is required."
+    },
+    "invalidFields": {
+        "emailField": "abdullah+1@",
+        "emailMsg": "Please enter a valid email address",
+        "passwordField": "123",
+        "passwordMsg": "Password should contain at least 8 characters",
+        "alreadyExistingEmailField": "test@integry.io",
+        "appUrl": "Wrong_url",
+        "appLinkErrorMsg": "Please enter a valid url",
+        "firtNameField": " ",
+        "lastNameField": " ",
+        "firtNameMsg": "First name is required.",
+        "lastNameMsg": "Last name is required."
+    },
+    "alreadyExistingEmail": {
+        "alreadyExistingEmailField": "test@integry.io",
+        "emailMsg": "A user with that username already exists.",
+        "appUrl": "https://www.integry.io/",
+        "accountName": "test_12345"
+    },
+    "alreadyExistingPasswordWithEmail": {
+        "passwordField": "test@integry.io",
+        "passwordMsg": "Password cannot be the same as email",
+        "appUrl": "https://www.integry.io/",
+        "accountName": "test_12345"
+    },
+    "alreadyExistingPasswordWithUserName": {
+        "emailField_Unique": "test@",
+        "firtNameField_Unique": "test_12345",
+        "lastNameField": "cypress",
+        "passwordFieldName_Unique": "test_12345",
+        "passwordMsg": "The password is too similar to the username.",
+        "appUrl": "https://www.integry.io/",
+        "accountName": "test_12345"
+    },
+    "alreadyExistingFields": {
+        "emailField_Unique": "test@",
+        "emailFieldError": "A user with that username already exists.",
+        "passwordFieldError": "Password cannot be the same as email",
+        "passwordFieldErrorSimilarToUsername": "The password is too similar to the username."
+    },
+    "onboarding": {
+        "roleDropdown": "Engineering",
+        "platformTypesDropdown": "Bots",
+        "companySizeDropdown": "0-10",
+        "companyLink": "https://integry.io",
+        "mockAppName": "app_not_found",
+        "appNames": "doneday, mailchimp",
+        "flowsName": "create a contact, update the app",
+        "continueTextButton": "Continue",
+        "doMeetingLaterTextButton": "Do This Later",
+        "successMsg": "Thanks for signing up!"
+    }
+}

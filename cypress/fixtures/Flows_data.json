@@ -1,0 +1,291 @@
+{
+    "selectACTrigger": {
+        "title": "Insightly Flow",
+        "description": "This is created by QA Bot for Testing.",
+        "search": "Insightly"
+    },
+    "fillTriggerFormForAc": {
+        "toastMsg": "Flow has been  saved successfully.",
+        "emailField_Unique": "qa",
+        "first_nameField": "Abdullah",
+        "doneMsg": "Test",
+        "@ApiEndpoints": 200
+    },
+    "triggerSuccessMessage": {
+        "triggerSuccessMsg": "Your test was successful! Let’s proceed.",
+        "doneTextButtonForce": "Done"
+    },
+    "selectActionConnector": {
+        "search": "SendInBlue"
+    },
+    "selectMailchimpConnector": {
+        "search": "mailchimp"
+    },
+    "authSelection": {
+        "userName": "__Sitwat",
+        "pass": "Test.1234"
+    },
+    "fillActionForm": {
+        "emailField_Unique": "Abdullah+1@integry.io",
+        "first_nameField": "Abdullah_1",
+        "done1TextButton": "Continue",
+        "doneTextButton": "Test",
+        "doneBtn": "Done"
+    },
+    "publishFlowInMarketPlace": {
+        "publishTextButton": "Publish flow",
+        "PublishFlowAssertionText": "Flow has been published and saved successfully."
+    },
+    "unpublishFlowInMarketPlace": {
+        "publishTextButton": "Unpublish flow"
+    },
+    "v6": {
+        "title": "testing",
+        "description": "Automation testing",
+        "searchBar": "Mailchimp",
+        "searchBar1": "Github",
+        "searchBar2": "ActiveCampaign",
+        "firstName": "abdullah",
+        "email": "@integry.io",
+        "successMessage": "Your test was successful! Let’s proceed.",
+        "searchBar3": "ActiveCampaign",
+        "actionText": "our task",
+        "emailAction": "12@integry.io"
+    },
+    "scheduleFlow": {
+        "title": "ScheduleFlow",
+        "description": "Create a flow with Schedule step",
+        "systemApp": "Schedule",
+        "doneBtnText": "Done",
+        "clientApp": "Insightly",
+        "account": {
+            "authType": "API key + URL",
+            "authName": "Insightly Integration",
+            "baseUrl": "https://api.na1.insightly.com",
+            "apiKey": "0a4f4d40-3564-49a6-8e26-75cf2fd8ec68",
+            "submitBtnText": "Proceed"
+        },
+        "action": "Create Contact",
+        "continueBtnText": "Continue",
+        "testBtnText": "Test",
+        "fields": [
+            {
+                "title": "First Name",
+                "value": "John"
+            },
+            {
+                "title": "Last Name",
+                "value": "Doe"
+            },
+            {
+                "title": "Email",
+                "value": "qaf1+test@integry.io"
+            }
+        ],
+        "saveBtnText": "Save",
+        "successMessage": "Flow has been  saved successfully."
+    },
+    "v7": {
+        "title": "Flow_1",
+        "cloneCreationText": "Make a Clone",
+        "cloneConfirmationText": "OK",
+        "description": "Bot Created a flow.",
+        "unpublishAssertionText": "Flow has been unpublished and saved successfully.",
+        "delDeloyFlowBoxOption": "Sample - doneday-12710",
+        "delFlowConfirmationBtn": "Done",
+        "flowName": "Doneday tasks to Todoist",
+        "updateFlowName": "Sample - Doneday tasks to Todoist",
+        "dropdownOption": "Rename",
+        "flowCopyBtn": "Copy",
+        "copyAssertionText": "Step copied",
+        "pasteAssertionText": "Step pasted",
+        "flowPasteBtn": "Paste",
+        "confirmDelBtnText": "Done",
+        "assertionCopyFlow": "Step copied",
+        "addStep": "Add Step",
+        "addConnectorFlowName": "Loop",
+        "unpublishSaveAssertionText": "Flow has been  saved successfully.",
+        "cloneAssertionText": "Flow has been cloned successfully!",
+        "delAssertionText": "Flow has been deleted successfully!",
+        "loopVariableText": "Created By QA Bot",
+        "loopDoneText": "Done",
+        "arrayLoopText": "[\"Ford\", \"BMW\", \"Fiat\"]",
+        "loopAssetionText": "Flow has been  saved successfully."
+    },
+    "setupFlow": {
+        "title": "SetupFlow",
+        "description": "Create a flow with Setup step",
+        "systemApp": "Setup",
+        "doneBtnText": "Done",
+        "clientApp": "Insightly",
+        "account": {
+            "authType": "API key + URL",
+            "authName": "Insightly Integration",
+            "baseUrl": "https://api.na1.insightly.com",
+            "apiKey": "0a4f4d40-3564-49a6-8e26-75cf2fd8ec68",
+            "submitBtnText": "Proceed"
+        },
+        "action": "Create Contact",
+        "continueBtnText": "Continue",
+        "testBtnText": "Test",
+        "fields": [
+            {
+                "title": "First Name",
+                "value": "John"
+            },
+            {
+                "title": "Last Name",
+                "value": "Doe"
+            },
+            {
+                "title": "Email",
+                "value": "qaf2+test@integry.io"
+            }
+        ],
+        "saveBtnText": "Save",
+        "successMessage": "Flow has been  saved successfully."
+    },
+    "loopFlow": {
+        "title": "LoopFlow",
+        "description": "Create a flow with Loop step",
+        "systemApp": "Loop",
+        "doneBtnText": "Done",
+        "clientApp": "Mailchimp",
+        "account": {
+            "authType": "OAuth2",
+            "username": "integryTest",
+            "password": "123Canon##",
+            "logInBtnText": "Log in",
+            "allowBtnText": "Allow"
+        },
+        "listFieldTitle": "List *",
+        "statusFieldTitle": "Subscription Status ",
+        "action": "Get Subscribers",
+        "list": "Integry75b495d635",
+        "subscriberStatus": "Subscribedsubscribed",
+        "continueBtnText": "Continue",
+        "testBtnText": "Test",
+        "varName": "contact",
+        "stepTitle": "Iteration 1",
+        "stepSubtitle": "Success",
+        "saveBtnText": "Save",
+        "successMessage": "Flow has been  saved successfully."
+    },
+    "ifFlow": {
+        "title": "IfFlow",
+        "description": "Create a flow with If and Else If steps",
+        "systemApp": "If",
+        "doneBtnText": "Done",
+        "clientApp": "Mailchimp",
+        "account": {
+            "authType": "OAuth2",
+            "username": "integryTest",
+            "password": "123Canon##",
+            "logInBtnText": "Log in",
+            "allowBtnText": "Allow"
+        },
+        "listFieldTitle": "List *",
+        "statusFieldTitle": "Subscription Status ",
+        "action": "Get Subscribers",
+        "list": "Integry75b495d635",
+        "subscriberStatus": "Subscribedsubscribed",
+        "continueBtnText": "Continue",
+        "testBtnText": "Test",
+        "doneBtnText": "Done",
+        "tagKey": "mailchimp_status",
+        "tagValue": "subscribed",
+        "stepTitle": "Condition Result:",
+        "stepSubtitle": "True",
+        "saveBtnText": "Save",
+        "successMessage": "Flow has been  saved successfully."
+    },
+    "elseIfFlow": {
+        "systemApp": "Else If",
+        "tagKey": "mailchimp_status",
+        "tagValue": "unsubscribed",
+        "testBtnText": "Test",
+        "stepTitle": "Condition Result:",
+        "stepSubtitle": "False",
+        "doneBtnText": "Done"
+    },
+    "generalSettings": {
+        "add": {
+            "title": "AddFlow",
+            "description": "Add a flow with Setup step",
+            "note": "added notes for the flow",
+            "tooltip": "added tooltip for the flow",
+            "buttonLabel": "Add",
+            "successMessage": "‘Settings‘ have been updated successfully"
+        },
+        "update": {
+            "title": "UpdateFlow",
+            "description": "Update a flow with Setup step",
+            "note": "updated notes for the flow",
+            "tooltip": "updated tooltip for the flow",
+            "buttonLabel": "Update",
+            "successMessage": "‘Settings‘ have been updated successfully"
+        }
+    },
+    "storageFlow": {
+        "title": "StorageFlow",
+        "description": "Create a flow with Storage Flow",
+        "systemApp": "If",
+        "name": "Abdullah",
+        "email": "abdullah@integry.io",
+        "doneBtnText": "Done",
+        "clientApp": "Mailchimp",
+        "account": {
+            "authType": "API key + URL",
+            "authName": "Insightly Integration",
+            "baseUrl": "https://api.na1.insightly.com",
+            "apiKey": "b6150dda-34dd-46a2-9d12-034e279cb782",
+            "allowBtnText": "Allow"
+        },
+        "namespaceValueText": "QA bot1",
+        "keyText": "QA12",
+        "listFieldTitle": "List *",
+        "statusFieldTitle": "Subscription Status ",
+        "key": "key_21332",
+        "valueText": "Created by Bot",
+        "action": "Insightly Action",
+        "list": "Integry75b495d635",
+        "subscriberStatus": "Subscribedsubscribed",
+        "continueBtnText": "Continue",
+        "testBtnText": "Test",
+        "doneBtnText": "Done",
+        "tagKey": "status",
+        "tagValue": "subscribed",
+        "stepTitle": "Condition Result:",
+        "stepSubtitle": "True",
+        "saveBtnText": "Save",
+        "successMessage": "Flow has been  saved successfully.",
+        "storageTitle": "Storage",
+        "storageAction": "Set Value",
+        "continueBtn": "continueBtn"
+    },
+    "createContactInInsightly": {
+        "FIRST_NAME": "test_",
+        "LAST_NAME": "integry",
+        "EMAIL_ADDRESS": "test@integry.io"
+    },
+    "querySetupFlow": {
+        "title": "Query_SetupFlow",
+        "queryTitle": "Query_SetupFlow",
+        "description": "Create a flow with Setup step",
+        "systemApp": "Setup",
+        "doneBtnText": "Done",
+        "clientApp": "Insightly",
+        "account": {
+            "authType": "API key + URL",
+            "authName": "Insightly Integration",
+            "baseUrl": "https://api.na1.insightly.com",
+            "apiKey": "0a4f4d40-3564-49a6-8e26-75cf2fd8ec68",
+            "submitBtnText": "Proceed"
+        },
+        "query": "Test Query",
+        "continueBtnText": "Continue",
+        "testBtnText": "Test",
+        "saveBtnText": "Save",
+        "successMessage": "Flow has been  saved successfully."
+    }
+}

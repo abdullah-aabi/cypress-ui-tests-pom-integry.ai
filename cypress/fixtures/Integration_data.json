@@ -1,0 +1,55 @@
+{
+    "fillAuthPopupIntegration": {
+        "authenticationName": "ActiveCampaign API key + URL",
+        "authBaseUrl": "https://mailinator23095.api-us1.com",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "fillAuthPopUp": {
+        "authenticationName": "ActiveCampaign API key + URL",
+        "authBaseUrl": "https://mailinator23095.api-us1.com",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "completeIntegrationSteps": {
+        "statusBarAssertValue": "Confirm and activate",
+        "flowPageAssertValue": "My Flows"
+    },
+    "integrationMp": {
+        "marketPlaceText": "Marketplace",
+        "qaBot": "This is created by QA Bot for Testing.",
+        "basicAuth": "basic-auth-type",
+        "url": "https://mailinator23095.api-us1.com",
+        "apiKey": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "proceedBtn": "Proceed",
+        "connectedAssertion": "Connected",
+        "email": "@gmail.com",
+        "name": "abdullah",
+        "confirmAssertion": "Confirm and activate",
+        "myFlowsAssertion": "My Flows",
+        "marketplaceAssertion": "Marketplace",
+        "searchFlowName": "Qa sanity testin",
+        "signoutAssertion": "Sign out",
+        "signinAssertion": "Sign in"
+    },
+    "MarketPlaceIntegration": {
+        "authname": "Insightly Integration",
+        "baseUrl": "https://api.na1.insightly.com",
+        "apiKey": "bcc7870b-7a4b-4d49-bd92-aaee19c3b5e1",
+        "signedinText": "You're signed in!",
+        "signoutAssertion": "Sign out",
+        "nextBtnText": "Next",
+        "saveBtnText": "Save",
+        "flowsTextAssertion": "My Flows",
+        "headerStatus" : "Status",
+        "headerRuns" : "Runs",
+        "headerLastActivity" : "Last Activity",
+        "headerActive" : "Active",
+        "lastActivityTime": "  ago",
+        "integrationName": "Google Sheets",
+        "updatedIntegrationName": "Google Sheets Automated",
+        "noOfRuns": "1",
+        "enabledToggleColor": "rgb(157, 218, 179)",
+        "editedName": " Automated"
+
+
+    }
+}

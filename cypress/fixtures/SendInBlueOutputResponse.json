@@ -1,0 +1,24 @@
+{
+    "json": [
+        "{\"email\":\"{{requestBody.data.email}}\",",
+        "{% if requestBody.data.sendinblue_attributes is not",
+        "empty %}",
+        "\"attributes\":{",
+        "{% for property_name, property_value in",
+        "requestBody.data.sendinblue_attributes %}",
+        "\"{{property_name}}\":\"{{ property_value }}",
+        "{% if not loop.last %}",
+        "{% endif %}",
+        "{% endfor %}",
+        "}",
+        "{% endif %}",
+        "\"listIds\":[{{requestBody.data.listid}}]",
+        "{% if requestBody.data.emailBlacklisted == 1 or requestBody.data.emailBlacklisted == '1'  or requestBody.data.emailBlacklisted == 'true' or requestBody.data.emailBlacklisted == 'True'%},",
+        "\"emailBlacklisted\":true{% else %},",
+        "\"emailBlacklisted\":false {% endif %}",
+        "{% if requestBody.data.smsBlacklisted == 1 or requestBody.data.smsBlacklisted == '1' or requestBody.data.smsBlacklisted == 'true' or requestBody.data.smsBlacklisted == 'True'%},",
+        "\"smsBlacklisted\":true {% else %},",
+        "\"smsBlacklisted\":false{% endif %}",
+        "}"
+    ]
+}

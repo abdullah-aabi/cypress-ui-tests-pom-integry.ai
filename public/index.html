@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="//fast.appcues.com/86469.js" async defer onload="AppcuesReady()"></script>
+      <script>
+          (function() {
+          if (!window.AppcuesReady) {
+          window.AppcuesReady = function(callback) {
+          callback && window.AppcuesReady.q.push(callback);
+          if (window.Appcues) {
+          while (window.AppcuesReady.q.length) {
+          cb = window.AppcuesReady.q.shift();
+          if (typeof cb === 'function') cb();
+      }
+      }
+      };
+          window.AppcuesReady.q = [];
+      }
+      })()
+    </script>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <script src="https://cdn.candu.ai/sdk/latest/candu.umd.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <title>Dashboard - Integry</title>
+  </head>
+
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <script>
+      (function(apiKey) {
+        (function(p, e, n, d, o) {
+          var v, w, x, y, z;
+          o = p[d] = p[d] || {};
+          o._q = [];
+          v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track'];
+          for (w = 0, x = v.length; w < x; ++w)
+            (function(m) {
+              o[m] =
+                o[m] ||
+                function() {
+                  o._q[m === v[0] ? 'unshift' : 'push'](
+                    [m].concat([].slice.call(arguments, 0))
+                  );
+                };
+            })(v[w]);
+          y = e.createElement(n);
+          y.async = !0;
+          y.src = 'https://cdn.pendo.io/agent/static/' + apiKey + '/pendo.js';
+          z = e.getElementsByTagName(n)[0];
+          z.parentNode.insertBefore(y, z);
+        })(window, document, 'script', 'pendo');
+      })('857d6482-c1fe-4dee-5651-bbdae23d3edf');
+    </script>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

@@ -1,0 +1,683 @@
+{
+    "v3": {
+        "fieldTitle": "Automated Testing App",
+        "fieldDescription": "Description of testing app",
+        "baseUrlName": "Test",
+        "baseUrl": "http://integry.io",
+        "authorization": "Authorizations",
+        "triggers": "Triggers",
+        "action": "Actions",
+        "productPage": "Product Page",
+        "verifyMessage": "App has been created successfully",
+        "verifyUpdateMessage": "Product page of your app have been successfully updated",
+        "verifyDescription": "Description of testing app"
+    },
+    "fillBaseUrlApi_Url": {
+        "appBaseUrl": "https://www.insightly.com/"
+    },
+    "fillBaseUrlBasic": {
+        "appBaseUrl": "https://mailchimp.com/"
+    },
+    "fillBasicInfoApi_Url": {
+        "title": "Insightly",
+        "description": "A CRM for building lasting customer relationships"
+    },
+    "fillBasicInfoDoneDay": {
+        "title": "Done Day App",
+        "description": "Done Day category-defining Customer Experience Automation Platform (CXA), by QA."
+    },
+    "fillBasic": {
+        "titleName_Unique": "MailChimp_",
+        "description": "MailChimp's category-defining Customer Experience Automation Platform (CXA), by QA."
+    },
+    "fillAuthFormApi_Url": {
+        "authTypeTextButtonExact": "API key + URL",
+        "baseUrl": "https://mailinator23095.api-us1.com",
+        "authAction": "/api/3/users",
+        "headerKey": "Api-Token",
+        "headerValue": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "urlGeneratedAssertText": "https://mailinator23095.api-us1.com/api/3/users"
+    },
+    "fillAuthFormBasic": {
+        "authType": "Basic",
+        "baseUrl": "https://mailchimp.com",
+        "action": "/",
+        "urlGeneratedAssertText": "https://mailchimp.com/",
+        "authName": "Mailchimp Basic",
+        "username": "abdullah@integry.io",
+        "password": "meAabi13119",
+        "submitBtnText": "Proceed"
+    },
+    "fillAuthPopupApi_Url": {
+        "authenticationName": "Insightly Integration",
+        "authBaseUrl": "https://mailinator23095.api-us1.com",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "fillAuthPopupBasic": {
+        "authenticationName": "Mailchimp Basic",
+        "username": "abdullah@integry.io",
+        "password": "meAabi13119"
+    },
+    "fillAuthPopupApi_Key": {
+        "authApi": "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"
+    },
+    "authSuccessAssertions": {
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueAssertText": "Continue"
+    },
+    "selectAndFillActivityTypeAction": {
+        "activityclickNth": 0,
+        "name": "Test Action",
+        "description": "Test : Action Created by Automation Bot."
+    },
+    "selectAndFillActivityTypeTrigger": {
+        "activityclickNth": 1,
+        "name": "Test Trigger",
+        "description": "Test : Trigger Created by Automation Bot."
+    },
+    "selectAndFillActivityTypeQuery": {
+        "activityclickNth": 2,
+        "name": "Test Query",
+        "description": "test : Query Created by Automation Bot."
+    },
+    "addTextFieldToActivity": {
+        "fieldType": "Textfield",
+        "title": "Email",
+        "titleDescription": "Created by Bot.",
+        "placeholder": "Enter subscriber email"
+    },
+    "addTextFieldToActivitySecond": {
+        "fieldType": "Textfield",
+        "title": "Name",
+        "titleDescription": "Created by Bot.",
+        "placeholder": "Enter subscriber name"
+    },
+    "activityAssertions": {
+        "continueAssertText": "Continue"
+    },
+    "fillActivityForm": {
+        "email_Unique": "qa+1@test.com",
+        "firstName_Unique": "qa_1"
+    },
+    "jsonInputActionApi_Url": {
+        "payloadJsonInput": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.name}}\"}"
+        ]
+    },
+    "jsonInputTriggerApi_Url": {
+        "payloadJsonInput": [
+            "{\"EMAIL_ADDRESS\":\"{requestBody.data.mail}\",",
+            "\"FIRST_NAME\":\"{requestBody.data.name}\"}"
+        ]
+    },
+    "sendApiCallApi_Url": {
+        "baseUrl": "https://api.na1.insightly.com",
+        "authAction": "/v3.1/Contacts",
+        "headerKey": "Authorization",
+        "headerValue": "Basic {{authorization.token.access_token}}",
+        "header2OptionTextButton": "Content-Type",
+        "header2Value": "application/json",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue"
+    },
+    "sendQueryApiCall": {
+        "baseUrl": "https://api.github.com",
+        "headerKey": "Authorization",
+        "headerValue": "/users/test/repos",
+        "pageLimit": "1",
+        "pageSize": "1",
+        "pageOffSet": "1",
+        "totalItems": "1",
+        "dynamicPage": "1",
+        "dynamicOffSet": "1",
+        "nextLink": "1",
+        "itemVariable": "1",
+        "increamentVariable": "1",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue"
+    },
+    "sendApiCallBasic": {
+        "baseUrl": "https://mailchimp.com/",
+        "authAction": "/api/3/contacts",
+        "headerKey": "Api-Token",
+        "headerValue": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "header2OptionTextButton": "Content-Type",
+        "header2Value": "application/json",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue"
+    },
+    "connectorSuccess": {
+        "connectorCompletionSuccessMsg": "Congratulations! You’ve completed your Connector."
+    },
+    "completeActivity": {
+        "testResultTextButton": "Test Result",
+        "continueTextButton": "Continue",
+        "continueTextButton2": "Continue",
+        "bannerSuccessMsg": "All done here! Let’s proceed.",
+        "navActivitiesTextButton": "Activities"
+    },
+    "fillAuthInfo": {
+        "baseUrl": "https://api.na1.insightly.com",
+        "action": "/v3.1/Users/me",
+        "apiTokenKey": "Authorization ",
+        "authType": "API key + URL",
+        "authName": "Insightly Integration",
+        "authBaseUrl": "https://api.na1.insightly.com",
+        "authApi": " Basic {{authorization.token.access_token}} ",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "reqUrl": "https://api.na1.insightly.com/v3.1/Users/me",
+        "submitBtnText": "Proceed",
+        "apiKey": "bcc7870b-7a4b-4d49-bd92-aaee19c3b5e1"
+    },
+    "fillDoneDayAuthInfo": {
+        "baseUrl": "https://doneday.integry.io",
+        "reqUrl": "https://doneday.integry.io/api",
+        "action": "/api",
+        "apiTokenValue": "8pjI97clYJO7q9RM7VYy",
+        "apiTokenKey": "Authorization",
+        "authType": "API Secret",
+        "authName": "basic-auth-type",
+        "authApi": "8pjI97clYJO7q9RM7VYy",
+        "submitBtnText": "Proceed"
+    },
+    "authorizatonType": {
+        "authType": "API key + URL"
+    },
+    "authorizatonApiType": {
+        "authType": "API key"
+    },
+    "fillAuthorizationForm": {
+        "authenticationname": "basic-auth-type",
+        "authBaseUrlInput": "https://mailinator23095.api-us1.com",
+        "authApiInput": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "authSuccess": {
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed."
+    },
+    "actionPage": {
+        "triggername": "Active Campaign Action",
+        "triggerDescription": "This is for testing purpose."
+    },
+    "addFieldPage": {
+        "fieldTitle": "email",
+        "field2Title": "name"
+    },
+    "fillJsonEditor": {
+        "payloadJsonInput": [
+            "{# you can add/remove more fields from this request body and shape it as your api requires #}",
+            "{",
+            "'contact':",
+            "{",
+            "'email': '{{requestBody.data.email}}',",
+            "'first name': '{{requestBody.data.first_name}}'"
+        ]
+    },
+    "triggerPage": {
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "triggername": "Active Campaign trigger",
+        "triggerDescription": "This is for testing purpose.",
+        "fieldTitle": "email",
+        "field2Title": "name"
+    },
+    "assertions": {
+        "continueMsg": "Continue"
+    },
+    "v4": {
+        "baseUrlType": "https://mailchimp.com/",
+        "description": "Description of testing app",
+        "dropDownContain": "Basic",
+        "verifyAuthorization": "Your test was successful! Let’s proceed.",
+        "authType": "basic-auth-type",
+        "authUserName": "abdullah@integry.io",
+        "authPassword": "meAabi13119",
+        "triggerNameText": "Integry trigger",
+        "triggerDescriptionText": "This is for testing purpose.",
+        "fieldTitle": "Testing",
+        "updateDescription": "Update Integry connector.",
+        "appUrl": "https://www.activecampaign.com/",
+        "authTypeAc": "API key + URL",
+        "acAppBaseUrl": "https://mailinator23095.api-us1.com",
+        "authAction": "/api/3/users",
+        "authHeader": "Api-Token",
+        "fieldFirstName": "abdullah",
+        "fieldEmail": "@integry.io",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "authHeader2": "application/json",
+        "actionName": "Active campaign Action",
+        "actionDescription": "testing",
+        "fieldName": "email",
+        "secondfieldName": "first name",
+        "statusBanner": "All done here! Let’s proceed.",
+        "bannerSuccess": "Your test was successful! Let’s proceed.",
+        "triggerAction": "/api/3/contacts",
+        "acAuthType": "API key + URL",
+        "appBaseUrl": "https://Integry.io",
+        "baseUrlDropDownIcon": "https://doneday.integry.io/api"
+    },
+    "bannerSuccessMsg": "Your test was successful! Let’s proceed.",
+    "activitiesRoute": "/edit/activities/create",
+    "activitiesStep": "Activities",
+    "apiKeySecret": {
+        "homepageUrl": "https://trello.com/",
+        "title": "Trello",
+        "description": "Trello is the visual collaboration tool",
+        "authType": "API key + secret",
+        "baseUrl": "https://api.trello.com/1",
+        "action": "/members/me?key=7ae82934083cf8f22c80f4cdb3dbadd4&token=e61301a08edef4d6c7626aeb580b6e184a7a980687718b4d72a77b3321afd68c",
+        "authName": "Integry Trello Integration",
+        "apiKey": "7ae82934083cf8f22c80f4cdb3dbadd4",
+        "apiSecret": "e61301a08edef4d6c7626aeb580b6e184a7a980687718b4d72a77b3321afd68c",
+        "submitBtnText": "Proceed"
+    },
+    "apiKeySecretRegion": {
+        "homepageUrl": "https://www.teamgate.com/",
+        "title": "Teamgate",
+        "description": "Teamgate provides cloud-based sales CRM solutions for small and mid-size companies",
+        "authType": "API key + secret + region",
+        "reqType": "POST",
+        "baseUrl": "https://us-central1-integry-app.cloudfunctions.net",
+        "action": "/AWS_SES_v2",
+        "reqUrl": "https://us-central1-integry-app.cloudfunctions.net/AWS_SES_v2",
+        "json": [
+            "{\"endpoint\":\"GetUser\",",
+            "\"region\":\"{{authorization.token.access_token.region}}\",",
+            "\"aws_key_secret\":\"{{authorization.token.access_token.api_secret}}\",",
+            "\"aws_key_id\":\"{{authorization.token.access_token.api_key}}\"}"
+        ],
+        "authName": "Integry Teamgate Integration",
+        "apiKey": "AKIA5KQEGHUL7PIH2ZXO",
+        "apiSecret": "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",
+        "region": "us-east-1",
+        "submitBtnText": "Submit"
+    },
+    "apiSecret": {
+        "homepageUrl": "https://convertkit.com/",
+        "title": "ConvertKit",
+        "description": "ConvertKit is a creator marketing platform for online creators",
+        "authType": "API Secret",
+        "baseUrl": "https://app.convertkit.com",
+        "action": "/users/login",
+        "reqUrl": "https://app.convertkit.com/users/login",
+        "apiTokenKey": "Api-Token",
+        "apiTokenValue": "API Secret(io7T_WbYPU7p0PWWRIdZQVMnO2IGBy4TXac15rM2cY8)",
+        "authName": "Integry ConvertKit Integration",
+        "apiSecret": "io7T_WbYPU7p0PWWRIdZQVMnO2IGBy4TXac15rM2cY8",
+        "submitBtnText": "Proceed"
+    },
+    "actionConnectAccount": {
+        "connectionLabel": "Insightly Integration",
+        "connectionStatus": "Connected"
+    },
+    "actionConnect": {
+        "connectionLabel": "Mailchimp Basic",
+        "connectionStatus": "Connected"
+    },
+    "apiSecretTrigger": {
+        "name": "Subscriber Added",
+        "description": "Triggers when a subscriber is added",
+        "textfield": [
+            {
+                "fieldType": "Textfield",
+                "title": "First Name",
+                "titleDescription": "Subscriber first name",
+                "placeholder": "Enter subscriber first name",
+                "value": "John Doe"
+            }
+        ],
+        "connectionLabel": "Integry ConvertKit Integration",
+        "connectionStatus": "Connected",
+        "stepName": "Poll API Call",
+        "reqType": "GET",
+        "baseUrl": "https://api.convertkit.com",
+        "action": "/v3/subscribers?api_secret={{authorization.token.access_token}}",
+        "reqUrl": "https://api.convertkit.com/v3/subscribers?api_secret={{authorization.token.access_token}}"
+    },
+    "apiKeyURL": {
+        "homepageUrl": "https://www.insightly.com/",
+        "title": "Insightly",
+        "description": "A CRM for building lasting customer relationships",
+        "authType": "API key + URL",
+        "baseUrl": "https://api.na1.insightly.com",
+        "action": "/v3.1/Users/me",
+        "reqUrl": "https://api.na1.insightly.com/v3.1/Users/me",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "authName": "Insightly Integration",
+        "apiKey": "0a4f4d40-3564-49a6-8e26-75cf2fd8ec68",
+        "submitBtnText": "Proceed"
+    },
+    "basicURL": {
+        "homepageUrl": "https://www.zendesk.com/",
+        "title": "Zendesk",
+        "description": "Zendesk makes customer service better",
+        "authType": "Basic + URL",
+        "baseUrl": "https://integry-io.zendesk.com",
+        "action": "/api/v2/users/me/",
+        "reqUrl": "https://integry-io.zendesk.com/api/v2/users/me/",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "authName": "Integry Zendesk Integration",
+        "username": "sitwat@integry.io",
+        "password": "Pakistan.97",
+        "submitBtnText": "Proceed"
+    },
+    "jiraBasicURL": {
+        "homepageUrl": "https://www.atlassian.com/",
+        "title": "Atlassian",
+        "description": "We help teams across the world become more nimble, creative, and aligned",
+        "authType": "Jira Basic + URL",
+        "baseUrl": "https://integry.atlassian.net",
+        "action": "/rest/api/3/myself",
+        "reqUrl": "https://integry.atlassian.net/rest/api/3/myself",
+        "authKey": "Authorization",
+        "authValue": "Basic {{query.access_token is not empty ? query.access_token : authorization.token.access_token}}",
+        "contentTypeKey": "Content-Type",
+        "contentTypeValue": "application/json",
+        "authName": "Integry Atlassian Integration",
+        "username": "sitwat@integry.io",
+        "password": "CYhacRkbJscgdKrv6NArAFD6",
+        "submitBtnText": "Proceed"
+    },
+    "oauth2": {
+        "homepageUrl": "https://mailchimp.com/",
+        "title": "Mailchimp",
+        "description": "Mailchimp is a leading all-in-one marketing and commerce platform for entrepreneurs",
+        "authType": "OAuth2",
+        "clientIdStage": "942014430374",
+        "clientSecretStage": "9bfbcdaeacd6958df6a95d2b0c7c6b216215cafb3a964e0fec",
+        "clientIdProd": "416714045473",
+        "clientSecretProd": "b3ae42375114b0d3f86f9ee4e5d5953844a11f5fa215dcf0f5",
+        "grantType": "Authorization Code",
+        "authorizationUri": "https://login.mailchimp.com/oauth2/authorize?response_type=code",
+        "baseUrl": "https://login.mailchimp.com",
+        "tokenAction": "/oauth2/token",
+        "tokenUrl": "https://login.mailchimp.com/oauth2/token",
+        "username": "integryTest",
+        "password": "123Canon##",
+        "logInBtnText": "Log in",
+        "allowBtnText": "Allow",
+        "tokenSuccessMsg": "New access token successfully received! Let's proceed",
+        "action": "/oauth2/metadata",
+        "reqUrl": "https://login.mailchimp.com/oauth2/metadata",
+        "authKey": "Authorization",
+        "authValue": "OAuth {{authorization.token.access_token}}",
+        "contentTypeKey": "Content-Type",
+        "contentTypeValue": "text/plain",
+        "processResStep": "Response Processing",
+        "runBtnText": "Run ",
+        "statusSuccessMsg": "All done here! Let’s proceed.",
+        "continueBtnText": "Continue",
+        "otherInfoStep": "Other Information",
+        "doneBtnText": "Done"
+    },
+    "insightlyActions": {
+        "app": "Insightly",
+        "activityType": "action",
+        "activityBtnText": "Create New Activity",
+        "name": "Create Contact",
+        "description": "Creates a new contact",
+        "textPassHideFields": [
+            {
+                "fieldType": "Hidden",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac1+test@integry.io"
+            },
+            {
+                "fieldType": "Password",
+                "title": "First Name",
+                "titleDescription": "contact first name",
+                "placeholder": "Enter contact first name",
+                "value": "John"
+            },
+            {
+                "fieldType": "Textarea",
+                "title": "Last Name",
+                "titleDescription": "contact last name",
+                "placeholder": "Enter contact last name",
+                "value": "Doe"
+            }
+        ],
+        "textDateTimeFields": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac2+test@integry.io"
+            },
+            {
+                "fieldType": "Date",
+                "title": "Meeting Date",
+                "titleDescription": "contact meeting date",
+                "placeholder": "Enter contact meeting date",
+                "value": "2022-01-01"
+            },
+            {
+                "fieldType": "Time",
+                "title": "Meeting Time",
+                "titleDescription": "contact meeting time",
+                "placeholder": "Enter contact meeting time",
+                "value": "12:00"
+            }
+        ],
+        "checkboxRadioFields": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "value": "qac3+test@integry.io"
+            },
+            {
+                "fieldType": "Checkbox",
+                "title": "List",
+                "titleDescription": "contact multi-select list",
+                "endpointName": "list source",
+                "baseUrl": "https://api.na1.insightly.com",
+                "action": "/v3.1/Leads",
+                "reqUrl": "https://api.na1.insightly.com/v3.1/Leads",
+                "reqType": "GET",
+                "activityType": "action",
+                "authKey": "Authorization",
+                "authValue": "Basic {{authorization.token.access_token}}",
+                "successMessage": "Your test was successful! Let’s proceed.",
+                "jsonCode": [
+                    "[{% for list in response %}",
+                    "{\"id\":\"{{list.LAST_NAME}}\",",
+                    "\"value\":\"{{list.LAST_NAME}}\"",
+                    "}",
+                    "{% if not loop.last %} , {% endif %}",
+                    "{% endfor %}",
+                    "]"
+                ],
+                "statusSuccessMsg": "All done here! Let’s proceed."
+            },
+            {
+                "fieldType": "Radio",
+                "title": "List",
+                "titleDescription": "Contact single-select list",
+                "endpointName": "list source"
+            }
+        ],
+        "dropdownField": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac4+test@integry.io"
+            },
+            {
+                "fieldType": "Dropdown",
+                "title": "List",
+                "titleDescription": "Contact dropdown list",
+                "endpointName": "list source",
+                "value": "Option 1"
+            }
+        ],
+        "fieldMapping": [
+            {
+                "fieldType": "Textfield",
+                "title": "Email",
+                "titleDescription": "Contact email",
+                "placeholder": "Enter contact email",
+                "value": "qac5+test@integry.io"
+            },
+            {
+                "fieldType": "Field Mapping",
+                "title": "Full Name",
+                "titleDescription": "Contact full name",
+                "addDataSource": "Add Source for Custom Field",
+                "endpointName": "field source",
+                "baseUrl": "https://api.na1.insightly.com",
+                "action": "/v3.1/CustomFields/Contact",
+                "reqUrl": "https://api.na1.insightly.com/v3.1/CustomFields/Contact",
+                "reqType": "GET",
+                "activityType": "action",
+                "authKey": "Authorization",
+                "authValue": "Basic {{authorization.token.access_token}}",
+                "successMessage": "Your test was successful! Let’s proceed.",
+                "jsonCode": [
+                    "[{% for field in response %}",
+                    "{\"id\":\"{{field.FIELD_ORDER}}\",",
+                    "\"type\":\"{{field.FIELD_TYPE}}\",",
+                    "\"title\":\"{{field.FIELD_LABEL}}\",",
+                    "\"description\":\"{{field.FIELD_LABEL}}\"",
+                    "}",
+                    "{% if not loop.last %} , {% endif %}",
+                    "{% endfor %}",
+                    "]"
+                ],
+                "statusSuccessMsg": "All done here! Let’s proceed.",
+                "value": "John Doe"
+            }
+        ],
+        "connectionLabel": "Insightly Integration",
+        "stepName": "API Call",
+        "baseUrl": "https://api.na1.insightly.com",
+        "action": "/v3.1/Contacts",
+        "reqUrl": "https://api.na1.insightly.com/v3.1/Contacts",
+        "reqType": "POST",
+        "authKey": "Authorization",
+        "authValue": "Basic {{authorization.token.access_token}}",
+        "jsonTextPassHideFields": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.first_name}}\",",
+            "\"LAST_NAME\":\"{{requestBody.data.last_name}}\"}"
+        ],
+        "jsonTextDateTimeFields": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.meeting_date}}\",",
+            "\"LAST_NAME\":\"{{requestBody.data.meeting_time}}\"}"
+        ],
+        "jsonCheckboxRadioFields": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.list}}\",",
+            "\"LAST_NAME\":\"{{requestBody.data.list_2}}\"}"
+        ],
+        "jsonDropdownField": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.list}}\"}"
+        ],
+        "jsonFieldMapping": [
+            "{\"EMAIL_ADDRESS\":\"{{requestBody.data.email}}\",",
+            "\"FIRST_NAME\":\"{{requestBody.data.full_name.1}}\"}"
+        ],
+        "runBtnText": "Run ",
+        "statusSuccessMsg": "All done here! Let’s proceed.",
+        "continueBtnText": "Continue",
+        "otherInfoStep": "Sample Output",
+        "doneBtnText": "Continue"
+    },
+    "updateBasicInfo": {
+        "description": "Active campaign connector Updated by Bot",
+        "authTypeTextButtonExact": "API key + URL",
+        "baseUrl": "https://mailinator23095.api-us1.com",
+        "authActionInput": "/api/3/users",
+        "fieldInputheader1": "Api-Token",
+        "fieldInputheader2": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1"
+    },
+    "doneDayAppUrl": {
+        "appBaseUrl": "https://www.doneday.net/"
+    },
+    "updateV4": {
+        "search": "Testing",
+        "name": "Testing",
+        "description": "Update Integry",
+        "triggerName": "Active Campaign Connector update",
+        "triggerDescription": "Make trigger activity",
+        "authOption": "API key + URL",
+        "authBaseUrl": "https://mailinator23095.api-us1.com",
+        "authAction": "/api/3/users",
+        "authHeader": "Api-Token",
+        "authApi": "84db6af52367ea099c9250927c485ac1e63b77f08056cecf6620a6cac86fc23aec9ce1a1",
+        "authName": "update auth",
+        "triggerFieldEmail": "email",
+        "triggerFieldName2": "first name",
+        "fieldFirstName": "abdullah",
+        "fieldEmail": "@integry.io",
+        "authHeader2": "application/json",
+        "successMessage": "Your test was successful! Let’s proceed.",
+        "triggerAction": "/api/3/contacts",
+        "triggerSuccessMessage": "All done here! Let’s proceed.",
+        "doneDayApi": "8pjI97clYJO7q9RM7VYy"
+    },
+    "fillBaseUrlBasicGithub": {
+        "appBaseUrl": "https://github.com/"
+    },
+    "fillBasicInfoGithub": {
+        "titleName_Unique": "Github_",
+        "description": "Github's category-defining Customer Experience Automation Platform (CXA), by QA."
+    },
+    "fillAuthFormApi_Github": {
+        "authAction": "user",
+        "headerKey": "Authorization",
+        "urlGeneratedAssertText": "https://github.com/user"
+    },
+    "fillAuthFormApikey": {
+        "authTypeTextButtonExact": "API key",
+        "baseUrl": "https://github.com/"
+    },
+    "cloneConnector": {
+        "cloneMsg": "Your app has been cloned successfully!App Cloned",
+        "deleteMsg": "Connector has been deleted successfully!"
+    },
+    "pollApi_Url": {
+        "baseUrl": "https://api.na1.insightly.com",
+        "rawBaseUrl": "{{ authorization.token.extras.base_uri | raw }}",
+        "authAction": "/v3.1/Contacts/Search?updated_after_utc={{ (polling.last_polled_at > 0 ? polling.last_polled_at | date('Y-m-d H:i:s') : 'now' | date('Y-m-d H:i:s')) }}",
+        "headerKey": "Authorization",
+        "baseUrlOption": "base_uri",
+        "headerValue": "Basic {{authorization.token.access_token}}",
+        "header2OptionTextButton": "Content-Type",
+        "header2Value": "application/json",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue",
+        "limitCount": "top",
+        "limitValue": "1000",
+        "offsetParameter": "skip",
+        "objectName": "Contact V1"
+    },
+    "queryPollApi_Url": {
+        "baseUrl": "https://api.na1.insightly.com",
+        "rawBaseUrl": "{{ authorization.token.extras.base_uri | raw }}",
+        "authAction": "/v3.1/Contacts",
+        "headerKey": "Authorization",
+        "baseUrlOption": "base_uri",
+        "headerValue": "Basic {{authorization.token.access_token}}",
+        "header2OptionTextButton": "Content-Type",
+        "header2Value": "application/json",
+        "bannerSuccessTextMsg": "Your test was successful! Let’s proceed.",
+        "continueTextButton": "Continue",
+        "limitCount": "top",
+        "limitValue": "50",
+        "offsetParameter": "skip",
+        "objectName": "Contact V1"
+    },
+    "trackingPropertyv3": {
+        "propertyNameText": "CONTACT_ID"
+    }
+}

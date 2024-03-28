@@ -1,0 +1,7 @@
+{
+    "contact": {
+        "email": "{{requestBody.data.email_0}}",
+        "first name": "{{requestBody.data.first_name_1}}",
+        "last name": "{{requestBody.data.last_name_2}}"
+    }
+}

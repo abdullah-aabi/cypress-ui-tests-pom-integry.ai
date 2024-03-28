@@ -1,0 +1,9 @@
+{
+    "json": [
+        "{\"endpoint\":\"GetUser\",",
+        "\"region\":\"{{authorization.token.access_token.region}}\",",
+        "\"aws_key_secret\":\"{{ authorization.token.access_token.api_secret}}\",",
+        "\"aws_key_id\":\"{{authorization.token.access_token.api_key}}\"",
+        "}"
+    ]
+}
