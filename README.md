@@ -1,0 +1,1 @@
+# cypress-ui-tests-pom-integry.ai
